@@ -1,5 +1,5 @@
-import 'package:afplayer/Page2.dart';
-import 'package:afplayer/page1.dart';
+import 'Page2.dart';
+import 'page1.dart';
 import 'package:flutter/material.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 
@@ -129,3 +129,6 @@ class _homepage extends State<HomePage> {
     );
   }
 }
+
+
+
