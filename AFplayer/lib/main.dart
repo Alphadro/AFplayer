@@ -1,5 +1,6 @@
-import 'package:afplayer/home_page.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/home_page.dart';
 import 'onboarding_screen.dart';
 import 'package:is_first_run/is_first_run.dart';
 
@@ -28,25 +29,6 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: _isFirstRun == true ? OnBoardingScreen() : HomePage(),
-    );
-  }
-}          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

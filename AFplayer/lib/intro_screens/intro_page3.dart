@@ -1,12 +1,14 @@
-import 'package:afplayer/home_page.dart';
+
 import 'package:flutter/material.dart';
 
-class IntroPage4 extends StatefulWidget {
+import '../home_page.dart';
+
+class IntroPage3 extends StatefulWidget {
   @override
-  _OBScreenState4 createState() => _OBScreenState4();
+  _OBScreenState3 createState() => _OBScreenState3();
 }
 
-class _OBScreenState4 extends State<IntroPage4> {
+class _OBScreenState3 extends State<IntroPage3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

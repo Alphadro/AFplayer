@@ -1,11 +1,10 @@
-import 'package:afplayer/intro_screens/intro_page1.dart';
-import 'package:afplayer/intro_screens/intro_page2.dart';
-import 'package:afplayer/intro_screens/intro_page3.dart';
-import 'package:afplayer/intro_screens/intro_page4.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/intro_screens/intro_page1.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'home_page.dart';
+import 'intro_screens/intro_page2.dart';
+import 'intro_screens/intro_page3.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({Key? key}) : super(key: key);
@@ -32,7 +31,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               IntroPage1(),
               IntroPage2(),
               IntroPage3(),
-              IntroPage4(),
+    
             ],
           ),
           Container(
@@ -46,7 +45,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 dotWidth: 16,
                 type: WormType.thin,
               ),
-              count: 4,
+              count: 3,
             ),
           ),
           Padding(
