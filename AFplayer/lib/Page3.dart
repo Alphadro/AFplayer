@@ -29,13 +29,12 @@ class _pageState extends State<Page3> {
                     Expanded(
                       child: Container(
                         alignment: Alignment.centerLeft,
-                        child:
-                        ImageIcon(
+                        child: ImageIcon(
                           AssetImage(
                             "assets/icons/fave_b.png",
                           ),
                           color: Color(0xff6f2dff),
-                          
+
                           // Colors
                         ),
                       ),
