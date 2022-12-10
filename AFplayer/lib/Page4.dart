@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Theme/theme1.dart';
+import 'package:flutter_application_1/Theme/theme2.dart';
+import 'package:flutter_application_1/Theme/theme3.dart';
+import 'package:flutter_application_1/Theme/theme4.dart';
+import 'package:flutter_application_1/Theme/theme5.dart';
+import 'package:flutter_application_1/Theme/theme6.dart';
+import 'package:flutter_application_1/widgets/playing.dart';
 
 import 'Search.dart';
 import 'Setting.dart';
 
 const primaryColor = Color(0xff1c1e25);
+
 class Page4 extends StatefulWidget {
   const Page4({Key? key}) : super(key: key);
 
@@ -12,82 +20,52 @@ class Page4 extends StatefulWidget {
 }
 
 class _pageState extends State<Page4> {
-    bool t1 = true;
+  bool t1 = true;
   bool s1 = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        title: Text(style: TextStyle(fontSize: 18), "For Me"),
-        backgroundColor: primaryColor,
-        elevation: 1,
-        shadowColor: Colors.grey,
-        leadingWidth: 45,
-        leading: Padding(
-            padding: const EdgeInsets.only(left: 15),
-            child: t1
-                ? GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        t1 = true;
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: ((context) => Setting())));
-                      });
-                    },
-                    child: const ImageIcon(
-                      AssetImage("assets/icons/menu.png"),
-                      color: Color(0xff3c4550),
-                      size: 35,
-                    ),
-                  )
-                : GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        t1 = false;
-                      });
-                    },
-                    child: Ink.image(
-                      image: AssetImage("assets/icons/menu.png"),
-                      colorFilter:
-                          ColorFilter.mode(Color(0x003c4550), BlendMode.color),
-                      child: InkWell(
-                        onTap: () {},
-                      ),
-                    ))),
-        actions: [
-          Padding(
-              padding: const EdgeInsets.only(right: 20),
-              child: s1
-                  ? GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          s1 = true;
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: ((context) => Search())));
-                        });
-                      },
-                      child: const ImageIcon(
-                        AssetImage("assets/icons/search.png"),
-                        size: 25,
-                        color: Color(0xff3c4550),
-                      ),
-                    )
-                  : GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          s1 = false;
-                        });
-                      },
-                      child: Ink.image(
-                        image: AssetImage("assets/icons/search.png"),
-                      ))),
-        ],
-      ),
+          centerTitle: true,
+          title: Text(style: TextStyle(fontSize: 18), "For Me"),
+          backgroundColor: primaryColor,
+          elevation: 1,
+          shadowColor: Colors.grey,
+          leadingWidth: 50,
+          leading: Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    s1 = true;
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: ((context) => Setting())));
+                  });
+                },
+                child: const ImageIcon(
+                  AssetImage("assets/icons/menu.png"),
+                  size: 25,
+                  color: Color(0xff3c4550),
+                ),
+              )),
+          actions: [
+            Padding(
+                padding: const EdgeInsets.only(right: 20),
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      s1 = true;
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: ((context) => Search())));
+                    });
+                  },
+                  child: const ImageIcon(
+                    AssetImage("assets/icons/search.png"),
+                    size: 25,
+                    color: Color(0xff3c4550),
+                  ),
+                )),
+          ]),
       body: Column(
         children: [
           Container(
@@ -127,8 +105,16 @@ class _pageState extends State<Page4> {
                         width: 150,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                              image: AssetImage('assets/themes/theme1.png'),
+                              image: AssetImage('assets/thems/theme1.png'),
                               fit: BoxFit.cover),
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: ((context) => theme1())));
+                          },
                         ),
                       ),
                       SizedBox(
@@ -139,8 +125,16 @@ class _pageState extends State<Page4> {
                         width: 150,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                              image: AssetImage('assets/themes/theme2.png'),
+                              image: AssetImage('assets/thems/theme2.png'),
                               fit: BoxFit.cover),
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: ((context) => theme2())));
+                          },
                         ),
                       ),
                       SizedBox(width: 10),
@@ -149,8 +143,16 @@ class _pageState extends State<Page4> {
                         width: 150,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                              image: AssetImage('assets/themes/theme3.png'),
+                              image: AssetImage('assets/thems/theme3.png'),
                               fit: BoxFit.cover),
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: ((context) => theme3())));
+                          },
                         ),
                       ),
                       SizedBox(width: 10),
@@ -195,8 +197,16 @@ class _pageState extends State<Page4> {
                         width: 150,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                              image: AssetImage('assets/themes/theme4.png'),
+                              image: AssetImage('assets/thems/theme4.png'),
                               fit: BoxFit.cover),
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: ((context) => theme4())));
+                          },
                         ),
                       ),
                       SizedBox(width: 10),
@@ -205,8 +215,16 @@ class _pageState extends State<Page4> {
                         width: 150,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                              image: AssetImage('assets/themes/theme5.png'),
+                              image: AssetImage('assets/thems/theme5.png'),
                               fit: BoxFit.cover),
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: ((context) => theme5())));
+                          },
                         ),
                       ),
                       SizedBox(width: 10),
@@ -215,8 +233,16 @@ class _pageState extends State<Page4> {
                         width: 150,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                              image: AssetImage('assets/themes/theme6.png'),
+                              image: AssetImage('assets/thems/theme6.png'),
                               fit: BoxFit.cover),
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: ((context) => theme6())));
+                          },
                         ),
                       ),
                       SizedBox(width: 10),
@@ -226,23 +252,28 @@ class _pageState extends State<Page4> {
               ],
             ),
           ),
-          Container(
-              height: 440,
+          Stack(children: [
+            Container(
+              height: 376.3,
               color: primaryColor,
               child: Expanded(
                 child: SizedBox(
-                  height: 350,
+                  height: 300,
                   width: 400,
                   child: Padding(
-                    padding: const EdgeInsets.all(20),
+                    padding:
+                        const EdgeInsets.only(bottom: 100, left: 65, right: 65),
                     child: Image(
                       image: AssetImage(
-                        "assets/themes/Tablighat.png",
+                        "assets/images/Tablighat.png",
                       ),
                     ),
                   ),
                 ),
-              ))
+              ),
+            ),
+            const Positioned(bottom: 5, left: 8, right: 8, child: playing())
+          ]),
         ],
       ),
     );

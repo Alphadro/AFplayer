@@ -1,11 +1,9 @@
-import 'dart:html';
-
 import 'Page2.dart';
 import 'page1.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/page1.dart';
 
-import 'Page2.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
+
 import 'Page3.dart';
 import 'Page4.dart';
 
@@ -25,9 +23,108 @@ class _homepage extends State<HomePage> {
     Page4(),
   ];
 
+  int currentIndex = 2;
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    //SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
+    //ThemeData(primarySwatch: Colors.blackm,);
+    return Scaffold(
+      body: _pageNo[currentIndex],
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          //color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 10,
+              color: Colors.black.withOpacity(.5),
+            )
+          ],
+        ),
+        child: SafeArea(
+          child: Container(
+            decoration: BoxDecoration(
+              border: Border(
+                top: BorderSide(
+                  color: Color(0xff909297),
+                  width: 0.05,
+                ),
+              ),
+              color: Color(0xff262932),
+            ),
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+              child: GNav(
+                rippleColor: Colors.grey[300]!,
+                hoverColor: Color(0xff262932),
+                gap: 8,
+                activeColor: Color(0xffcccccc),
+                iconSize: 24,
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                duration: Duration(milliseconds: 400),
+                tabBackgroundColor: Color(0xff6f2dff),
+                color: Color(0xff909297),
+                tabs: [
+                  GButton(
+                    leading: SizedBox(
+                      child: ImageIcon(
+                        AssetImage(
+                          "assets/icons/list.png",
+                        ),
+                        color: Color(0xffcccccc),
+                      ),
+                    ),
+                    text: 'List',
+                    icon: Icons.remove,
+                  ),
+                  GButton(
+                    leading: SizedBox(
+                      child: ImageIcon(
+                        AssetImage(
+                          "assets/icons/fave.png",
+                        ),
+                        color: Color(0xffcccccc),
+                      ),
+                    ),
+                    text: 'Favorite',
+                    icon: Icons.remove,
+                  ),
+                  GButton(
+                    leading: SizedBox(
+                      child: ImageIcon(
+                        AssetImage(
+                          "assets/icons/music.png",
+                        ),
+                        color: Color(0xffcccccc),
+                      ),
+                    ),
+                    text: 'Music',
+                    icon: Icons.remove,
+                  ),
+                  GButton(
+                    leading: SizedBox(
+                      child: ImageIcon(
+                        AssetImage(
+                          "assets/icons/home.png",
+                        ),
+                        color: Color(0xffcccccc),
+                      ),
+                    ),
+                    text: 'Home',
+                    icon: Icons.remove,
+                  ),
+                ],
+                selectedIndex: currentIndex,
+                onTabChange: (index) {
+                  setState(() {
+                    currentIndex = index;
+                  });
+                },
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

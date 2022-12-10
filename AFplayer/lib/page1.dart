@@ -1,22 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/playing.dart';
-
+import 'package:flutter_application_1/widgets/playing.dart';
 
 import 'Page3.dart';
 import 'Search.dart';
 import 'Setting.dart';
-const primaryColor = Color(0xFF202128);
+
+const primaryColor = Color(0xff1c1e25);
+
 class Page1 extends StatefulWidget {
   const Page1({Key? key}) : super(key: key);
   @override
   _pageState createState() => _pageState();
-  
 }
 
 class _pageState extends State<Page1> {
-    bool t1 = false;
+  bool t1 = false;
   bool s1 = false;
-    List<String> Music = [
+  List<String> Music = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
     "",
     "",
     "",
@@ -32,7 +44,7 @@ class _pageState extends State<Page1> {
   ];
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
         backgroundColor: primaryColor,
         appBar: AppBar(
           centerTitle: true,
@@ -65,7 +77,7 @@ class _pageState extends State<Page1> {
                   });
                 },
                 child: const ImageIcon(
-                  AssetImage("assets/Icon/menu.png"),
+                  AssetImage("assets/icons/menu.png"),
                   size: 25,
                   color: Color(0xff3c4550),
                 ),
@@ -82,7 +94,7 @@ class _pageState extends State<Page1> {
                     });
                   },
                   child: const ImageIcon(
-                    AssetImage("assets/Icon/search.png"),
+                    AssetImage("assets/icons/search.png"),
                     size: 25,
                     color: Color(0xff3c4550),
                   ),
@@ -113,7 +125,7 @@ class _pageState extends State<Page1> {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(10),
                             child: const Image(
-                              image: AssetImage('assets/Icon/cover_img.png'),
+                              image: AssetImage('assets/images/cover_img.png'),
                             ),
                           ),
                         ),
@@ -129,7 +141,7 @@ class _pageState extends State<Page1> {
                           top: 2,
                           left: 5,
                           child: ImageIcon(
-                            AssetImage("assets/Icon/music.png"),
+                            AssetImage("assets/icons/circlemusic.png"),
                             size: 15,
                             color: Colors.white,
                           ),
@@ -138,7 +150,7 @@ class _pageState extends State<Page1> {
                           top: 2,
                           right: 5,
                           child: ImageIcon(
-                            AssetImage("assets/Icon/menu.png"),
+                            AssetImage("assets/icons/menu.png"),
                             size: 15,
                             color: Colors.white,
                           ),
