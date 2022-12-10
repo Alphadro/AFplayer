@@ -41,7 +41,7 @@ class _OBScreenState extends State<IntroPage1> {
                     height: 20,
                   ),
                   Text(
-                    "Player Hasan Yousefi",
+                    "Player zN2",
                     style: TextStyle(
                       color: Color(0xffffffff),
                       fontSize: 20,

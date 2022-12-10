@@ -142,7 +142,7 @@ class _pageState extends State<Page2> {
                         ]));
                   }))),
         ),
-        const Positioned(bottom: 5, left: 8, right: 8, child: playing())
+        const Positioned(bottom: 5, left: 8, right: 8, child: playing()),
       ]),
       floatingActionButton: FloatingActionButton.extended(
         backgroundColor: Color(0xff6f2dff),

@@ -27,7 +27,13 @@ class _pageState extends State<Page4> {
     return Scaffold(
       appBar: AppBar(
           centerTitle: true,
-          title: Text(style: TextStyle(fontSize: 18), "For Me"),
+          title: Text(
+              style: TextStyle(
+                fontSize: 18,
+                fontFamily: "IranwebSanse",
+                fontWeight: FontWeight.w400,
+              ),
+              "For me"),
           backgroundColor: primaryColor,
           elevation: 1,
           shadowColor: Colors.grey,
@@ -66,215 +72,230 @@ class _pageState extends State<Page4> {
                   ),
                 )),
           ]),
-      body: Column(
-        children: [
-          Container(
-            height: 150,
-            color: Colors.white,
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(
-                    top: 8,
-                  ),
-                  child: const Text(
-                    "Dark Mode",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 8),
-                  child: const Text(
-                    'Kevin Obrien Studio Art Furniture House',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 15, color: Color(0xff63697c)),
-                  ),
-                ),
-                SizedBox(
-                  height: 75,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      SizedBox(width: 10),
-                      Container(
-                        height: 75,
-                        width: 150,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('assets/thems/theme1.png'),
-                              fit: BoxFit.cover),
-                        ),
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: ((context) => theme1())));
-                          },
-                        ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        height: 75,
-                        width: 150,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('assets/thems/theme2.png'),
-                              fit: BoxFit.cover),
-                        ),
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: ((context) => theme2())));
-                          },
-                        ),
-                      ),
-                      SizedBox(width: 10),
-                      Container(
-                        height: 75,
-                        width: 150,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('assets/thems/theme3.png'),
-                              fit: BoxFit.cover),
-                        ),
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: ((context) => theme3())));
-                          },
-                        ),
-                      ),
-                      SizedBox(width: 10),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            height: 150,
-            color: Color(0xff23272f),
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 8),
-                  child: const Text(
-                    "Light Mode",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 8),
-                  child: const Text(
-                    'Kevin Obrien Studio Art Furniture House',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 15, color: Color(0xff63697c)),
-                  ),
-                ),
-                SizedBox(
-                  height: 80,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      SizedBox(width: 10),
-                      Container(
-                        height: 75,
-                        width: 150,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('assets/thems/theme4.png'),
-                              fit: BoxFit.cover),
-                        ),
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: ((context) => theme4())));
-                          },
-                        ),
-                      ),
-                      SizedBox(width: 10),
-                      Container(
-                        height: 75,
-                        width: 150,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('assets/thems/theme5.png'),
-                              fit: BoxFit.cover),
-                        ),
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: ((context) => theme5())));
-                          },
-                        ),
-                      ),
-                      SizedBox(width: 10),
-                      Container(
-                        height: 75,
-                        width: 150,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('assets/thems/theme6.png'),
-                              fit: BoxFit.cover),
-                        ),
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: ((context) => theme6())));
-                          },
-                        ),
-                      ),
-                      SizedBox(width: 10),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Stack(children: [
+      body: Container(
+        color: primaryColor,
+        child: Column(
+          children: [
             Container(
-              height: 376.3,
-              color: primaryColor,
-              child: Expanded(
-                child: SizedBox(
-                  height: 300,
-                  width: 400,
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.only(bottom: 100, left: 65, right: 65),
-                    child: Image(
-                      image: AssetImage(
-                        "assets/images/Tablighat.png",
+              height: 150,
+              color: Colors.white,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      top: 8,
+                    ),
+                    child: const Text(
+                      "Dark Mode",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontFamily: "IranwebSanse",
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 8),
+                    child: const Text(
+                      'Kevin Obrien Studio Art Furniture House',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 12,
+                          fontFamily: "IranwebSanse",
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xff63697c)),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 75,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        SizedBox(width: 10),
+                        Container(
+                          height: 75,
+                          width: 150,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage('assets/thems/theme1.png'),
+                                fit: BoxFit.cover),
+                          ),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: ((context) => theme1())));
+                            },
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                          height: 75,
+                          width: 150,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage('assets/thems/theme2.png'),
+                                fit: BoxFit.cover),
+                          ),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: ((context) => theme2())));
+                            },
+                          ),
+                        ),
+                        SizedBox(width: 10),
+                        Container(
+                          height: 75,
+                          width: 150,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage('assets/thems/theme3.png'),
+                                fit: BoxFit.cover),
+                          ),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: ((context) => theme3())));
+                            },
+                          ),
+                        ),
+                        SizedBox(width: 10),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              height: 160,
+              color: Color(0xff23272f),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8),
+                    child: const Text(
+                      "Light Mode",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontFamily: "IranwebSanse",
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 8),
+                    child: const Text(
+                      'Kevin Obrien Studio Art Furniture House',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 15,
+                          fontFamily: "IranwebSanse",
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xff63697c)),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 80,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        SizedBox(width: 10),
+                        Container(
+                          height: 75,
+                          width: 150,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage('assets/thems/theme4.png'),
+                                fit: BoxFit.cover),
+                          ),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: ((context) => theme4())));
+                            },
+                          ),
+                        ),
+                        SizedBox(width: 10),
+                        Container(
+                          height: 75,
+                          width: 150,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage('assets/thems/theme5.png'),
+                                fit: BoxFit.cover),
+                          ),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: ((context) => theme5())));
+                            },
+                          ),
+                        ),
+                        SizedBox(width: 10),
+                        Container(
+                          height: 75,
+                          width: 150,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage('assets/thems/theme6.png'),
+                                fit: BoxFit.cover),
+                          ),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: ((context) => theme6())));
+                            },
+                          ),
+                        ),
+                        SizedBox(width: 10),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              child: Stack(children: [
+                Container(
+                  height: 376.3,
+                  color: primaryColor,
+                  child: Expanded(
+                    child: SizedBox(
+                      height: 300,
+                      width: 400,
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            bottom: 100, left: 65, right: 65),
+                        child: Image(
+                          image: AssetImage(
+                            "assets/images/Tablighat.png",
+                          ),
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
+                const Positioned(bottom: 5, left: 8, right: 8, child: playing())
+              ]),
             ),
-            const Positioned(bottom: 5, left: 8, right: 8, child: playing())
-          ]),
-        ],
+          ],
+        ),
       ),
     );
   }
