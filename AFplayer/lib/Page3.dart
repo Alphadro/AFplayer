@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_application_1/Page2.dart';
+
+import 'Setting.dart';
+
 class Page3 extends StatefulWidget {
   const Page3({Key? key}) : super(key: key);
 
@@ -8,6 +12,7 @@ class Page3 extends StatefulWidget {
 }
 
 class _pageState extends State<Page3> {
+  bool f1 = true;
   @override
   Widget build(BuildContext context) {
     late double _currentSliderValueTrText = 25;
@@ -26,23 +31,51 @@ class _pageState extends State<Page3> {
                   children: [
                     Expanded(
                       child: Container(
-                        alignment: Alignment.centerLeft,
-                        child: ImageIcon(
-                          AssetImage(
-                            "assets/icons/fave_b.png",
-                          ),
-                          color: Color(0xff6f2dff),
+                          alignment: Alignment.centerLeft,
+                          child: f1
+                              ? GestureDetector(
+                                  onTap: () {
+                                    f1 = false;
+                                    setState(() {});
+                                  },
+                                  child: ImageIcon(
+                                    AssetImage(
+                                      "assets/icons/fave.png",
+                                    ),
+                                    color: Color(0xff6f2dff),
+                                  )
 
-                          // Colors
-                        ),
-                      ),
+                                  // Colors
+                                  )
+                              : GestureDetector(
+                                  onTap: () {
+                                    f1 = true;
+                                    setState(() {});
+                                  },
+                                  child: ImageIcon(
+                                    AssetImage(
+                                      "assets/icons/fave_b.png",
+                                    ),
+                                    color: Color(0xff6f2dff),
+                                  ),
+                                )),
                     ),
                     Expanded(
                       child: Container(
                         alignment: Alignment.centerRight,
-                        child: Icon(
-                          Icons.more_vert,
-                          color: Color(0xff909297),
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: ((context) => Setting())));
+                            });
+                          },
+                          child: Icon(
+                            Icons.more_vert,
+                            color: Color(0xff3c4550),
+                          ),
                         ),
                       ),
                     ),
@@ -51,12 +84,20 @@ class _pageState extends State<Page3> {
               ),
               Column(
                 children: [
-                  ImageIcon(
-                    AssetImage(
-                      "assets/icons/arrow_down.png",
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: ((context) => Page2())));
+                      });
+                    },
+                    child: ImageIcon(
+                      AssetImage(
+                        "assets/icons/arrow_down.png",
+                      ),
+                      color: Color(0xff3c4550),
+                      size: 15,
                     ),
-                    color: Color(0xff3c4550),
-                    size: 15,
                   ),
                   Text(
                     "Album List Plaing",
@@ -66,6 +107,9 @@ class _pageState extends State<Page3> {
                       fontWeight: FontWeight.w100,
                     ),
                   ),
+                  SizedBox(
+                    height: 80,
+                  )
                 ],
               ),
               Expanded(
@@ -106,33 +150,40 @@ class _pageState extends State<Page3> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 30),
-                        Container(
-                          height: 30,
-                          child: Text(
-                            "Love On the Brain",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: "IranwebSanse",
-                              fontSize: 25,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          height: 20,
-                          child: Text(
-                            "Danito & Athina",
-                            style: TextStyle(
-                              color: Color(0xff3c4550),
-                              fontFamily: "IranwebSanse",
-                              fontSize: 15,
-                              fontWeight: FontWeight.w400,
+                        SizedBox(height: 25),
+                        Expanded(
+                          child: Container(
+                            height: 30,
+                            child: Text(
+                              "Love On the Brain",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: "IranwebSanse",
+                                fontSize: 25,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                           ),
                         ),
                         SizedBox(
-                          height: 30,
+                          height: 2,
+                        ),
+                        Expanded(
+                          child: Container(
+                            height: 20,
+                            child: Text(
+                              "Danito & Athina",
+                              style: TextStyle(
+                                color: Color(0xff3c4550),
+                                fontFamily: "IranwebSanse",
+                                fontSize: 15,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 80,
                         ),
                       ]),
                 ),

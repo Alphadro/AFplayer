@@ -38,15 +38,24 @@ class _playing extends State<playing> {
                       children: [
                         const Text(
                           'Like it Doesnt Hurt',
-                          style: TextStyle(color: Colors.white, fontSize: 12),
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                            fontFamily: "IranwebSanse",
+                            fontWeight: FontWeight.w300,
+                          ),
                         ),
                         const SizedBox(
-                          height: 6,
+                          height: 4,
                         ),
                         Text(
                           'Danito & Athina',
-                          style:
-                              TextStyle(color: Color(0xff3c4550), fontSize: 11),
+                          style: TextStyle(
+                            color: Color(0xff3c4550),
+                            fontSize: 11,
+                            fontFamily: "IranwebSanse",
+                            fontWeight: FontWeight.w200,
+                          ),
                         ),
                       ],
                     ),
@@ -54,24 +63,30 @@ class _playing extends State<playing> {
                       width: 110,
                     ),
                     Expanded(
-                      child: const SizedBox(
-                        height: 40,
-                        width: 40,
-                        child: ImageIcon(
-                          AssetImage('assets/icons/play_btn.png'),
-                          color: Colors.white,
+                      child: Container(
+                        child: IconButton(
+                          onPressed: () => {},
+                          icon: ImageIcon(
+                            AssetImage('assets/icons/play_btn.png'),
+                            color: Colors.white,
+                            size: 40,
+                          ),
                         ),
                       ),
                     ),
                     const SizedBox(
-                      width: 10,
+                      width: 5,
                     ),
                     Expanded(
-                      child: const SizedBox(
-                          height: 20,
-                          width: 20,
-                          child: ImageIcon(AssetImage('assets/icons/forw.png'),
-                              color: Color(0xff3c4550))),
+                      child: Container(
+                        child: IconButton(
+                            onPressed: () => {},
+                            icon: ImageIcon(
+                              AssetImage('assets/icons/forw.png'),
+                              color: Color(0xff3c4550),
+                              size: 16,
+                            )),
+                      ),
                     ),
                   ],
                 ),
