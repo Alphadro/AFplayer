@@ -43,7 +43,7 @@ class _pageState extends State<Page2> {
                 centerTitle: true,
                 title: Text(
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 18.sp,
                       fontFamily: "IranwebSanse",
                       fontWeight: FontWeight.w400,
                     ),
@@ -109,7 +109,7 @@ class _pageState extends State<Page2> {
                                   Stack(alignment: Alignment.center, children: [
                                 Positioned(
                                   top: 0,
-                                  height: 110,
+                                  height: 90.h,
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(10),
                                     child: const Image(
@@ -155,13 +155,13 @@ class _pageState extends State<Page2> {
                                         fontWeight: FontWeight.w300,
                                       ),
                                     )),
-                                const Positioned(
+                                Positioned(
                                     bottom: 0,
                                     child: Text(
                                       'Danito & Athina',
                                       style: TextStyle(
                                         color: Color(0xff3c4550),
-                                        fontSize: 8,
+                                        fontSize: 8.sp,
                                         fontFamily: "IranwebSanse",
                                         fontWeight: FontWeight.w200,
                                       ),

@@ -61,27 +61,27 @@ class _pageState extends State<Page1> {
                   children: [
                     Text(
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 15.sp,
                           fontFamily: "IranwebSanse",
                           fontWeight: FontWeight.w400,
                         ),
                         "Filter"),
                     SizedBox(
-                      width: 18,
+                      width: 18.w,
                     ),
                     Text(
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 15.sp,
                           fontFamily: "IranwebSanse",
                           fontWeight: FontWeight.w400,
                         ),
                         "Arrange"),
                     SizedBox(
-                      width: 18,
+                      width: 18.w,
                     ),
                     Text(
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 15.sp,
                           fontFamily: "IranwebSanse",
                           fontWeight: FontWeight.w400,
                         ),
@@ -150,10 +150,10 @@ class _pageState extends State<Page1> {
                                 Stack(alignment: Alignment.center, children: [
                               Positioned(
                                 top: 0,
-                                height: 110,
+                                height: 90.h,
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(10),
-                                  child: const Image(
+                                  child: Image(
                                     image: AssetImage(
                                         'assets/images/cover_img.png'),
                                   ),
@@ -188,23 +188,22 @@ class _pageState extends State<Page1> {
                               Positioned(
                                 bottom: 11,
                                 child: Text(
-                                  ' Like it Doesnt Hurt',
+                                  'Like it Doesnt Hurt',
                                   style: TextStyle(
                                     fontSize: 11.sp,
                                     color: Colors.white,
                                     fontFamily: "IranwebSanse",
                                     fontWeight: FontWeight.w300,
                                   ),
-                                  textScaleFactor: 1.0,
                                 ),
                               ),
-                              const Positioned(
+                              Positioned(
                                   bottom: 0,
                                   child: Text(
                                     'Danito & Athina',
                                     style: TextStyle(
                                       color: Color(0xff3c4550),
-                                      fontSize: 8,
+                                      fontSize: 8.sp,
                                       fontFamily: "IranwebSanse",
                                       fontWeight: FontWeight.w200,
                                     ),

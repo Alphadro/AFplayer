@@ -218,7 +218,7 @@ class _pageState extends State<Page4> {
                         ),
                       ),
                       SizedBox(
-                        height: 80,
+                        height: 75,
                         child: ListView(
                           scrollDirection: Axis.horizontal,
                           children: [
