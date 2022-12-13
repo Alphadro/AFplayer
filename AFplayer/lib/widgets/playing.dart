@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -9,6 +10,10 @@ class playing extends StatefulWidget {
 }
 
 class _playing extends State<playing> {
+  final player = AudioPlayer();
+  bool isPlaying = false;
+  Duration duration = Duration.zero;
+  Duration position = Duration.zero;
   late double _currentSliderValueTrText = 25;
   @override
   Widget build(BuildContext context) {
@@ -116,13 +121,14 @@ class _playing extends State<playing> {
                                 activeColor: const Color(0xff6f2dff),
                                 thumbColor: Color(0xff6f2dff),
                                 inactiveColor: Color(0xff36383e),
-                                value: _currentSliderValueTrText,
-                                min: 1,
-                                max: 100,
-                                onChanged: (double newValue) {
-                                  setState(() {
-                                    _currentSliderValueTrText = newValue;
-                                  });
+                                value: position.inSeconds.toDouble(),
+                                min: 0,
+                                max: duration.inSeconds.toDouble(),
+                                onChanged: (value) {
+                                  final Position =
+                                      Duration(seconds: value.toInt());
+                                  player.seek(position);
+                                  player.resume();
                                 },
                               ),
                             ),
