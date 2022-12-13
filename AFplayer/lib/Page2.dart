@@ -83,6 +83,24 @@ class _pageState extends State<Page2> {
                                     builder: ((context) => Search())));
                           });
                         },
+                        child: const Icon(
+                          Icons.add,
+                          color: Color(0xff3c4550),
+                          size: 25,
+                        ),
+                      )),
+                  Padding(
+                      padding: const EdgeInsets.only(right: 20),
+                      child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            s1 = true;
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: ((context) => Search())));
+                          });
+                        },
                         child: const ImageIcon(
                           AssetImage("assets/icons/search.png"),
                           size: 25,
@@ -171,15 +189,6 @@ class _pageState extends State<Page2> {
               ),
               const Positioned(bottom: 5, left: 8, right: 8, child: playing()),
             ]),
-            floatingActionButton: FloatingActionButton.extended(
-              backgroundColor: Color(0xff6f2dff),
-              onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => Page3()));
-              },
-              label: Text("New"),
-              icon: Icon(Icons.add),
-            ),
           );
         });
   }
