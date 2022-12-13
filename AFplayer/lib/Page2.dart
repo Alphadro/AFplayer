@@ -72,6 +72,20 @@ class _pageState extends State<Page2> {
                     )),
                 actions: [
                   Padding(
+                      padding: const EdgeInsets.only(right: 40),
+                      child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            s1 = true;
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: ((context) => Search())));
+                          });
+                        },
+                        child: const Icon(Icons.add),
+                      )),
+                  Padding(
                       padding: const EdgeInsets.only(right: 20),
                       child: GestureDetector(
                         onTap: () {
@@ -171,15 +185,6 @@ class _pageState extends State<Page2> {
               ),
               const Positioned(bottom: 5, left: 8, right: 8, child: playing()),
             ]),
-            floatingActionButton: FloatingActionButton.extended(
-              backgroundColor: Color(0xff6f2dff),
-              onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => Page3()));
-              },
-              label: Text("New"),
-              icon: Icon(Icons.add),
-            ),
           );
         });
   }
