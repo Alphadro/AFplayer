@@ -72,7 +72,7 @@ class _pageState extends State<Page2> {
                     )),
                 actions: [
                   Padding(
-                      padding: const EdgeInsets.only(right: 40),
+                      padding: const EdgeInsets.only(right: 20),
                       child: GestureDetector(
                         onTap: () {
                           setState(() {
@@ -83,7 +83,11 @@ class _pageState extends State<Page2> {
                                     builder: ((context) => Search())));
                           });
                         },
-                        child: const Icon(Icons.add),
+                        child: const Icon(
+                          Icons.add,
+                          color: Color(0xff3c4550),
+                          size: 25,
+                        ),
                       )),
                   Padding(
                       padding: const EdgeInsets.only(right: 20),
