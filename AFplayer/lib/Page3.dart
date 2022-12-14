@@ -37,22 +37,51 @@ class _pageState extends State<Page3> {
                         children: [
                           Expanded(
                             child: Container(
-                              alignment: Alignment.centerLeft,
-                              child: ImageIcon(
-                                AssetImage(
-                                  "assets/icons/fave_b.png",
-                                ),
-                                color: Color(0xff6f2dff),
-                                // Colors
-                              ),
-                            ),
+                                alignment: Alignment.centerLeft,
+                                child: f1
+                                    ? GestureDetector(
+                                        onTap: () {
+                                          bool f1 = true;
+                                          setState(() {});
+                                        },
+                                        child: ImageIcon(
+                                          AssetImage(
+                                            "assets/icons/fave.png",
+                                          ),
+                                          color: Color(0xff6f2dff),
+                                          // Colors
+                                        ),
+                                      )
+                                    : GestureDetector(
+                                        onTap: () {
+                                          bool f1 = false;
+                                          setState(() {});
+                                        },
+                                        child: ImageIcon(
+                                          AssetImage(
+                                            "assets/icons/fave_b.png",
+                                          ),
+                                          color: Color(0xff6f2dff),
+                                          // Colors
+                                        ),
+                                      )),
                           ),
                           Expanded(
                             child: Container(
                               alignment: Alignment.centerRight,
-                              child: Icon(
-                                Icons.more_vert,
-                                color: Color(0xff909297),
+                              child: GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: ((context) => Setting())));
+                                  });
+                                },
+                                child: Icon(
+                                  Icons.more_vert,
+                                  color: Color(0xff3c4550),
+                                ),
                               ),
                             ),
                           ),
@@ -61,12 +90,22 @@ class _pageState extends State<Page3> {
                     ),
                     Column(
                       children: [
-                        ImageIcon(
-                          AssetImage(
-                            "assets/icons/arrow_down.png",
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: ((context) => Page2())));
+                            });
+                          },
+                          child: ImageIcon(
+                            AssetImage(
+                              "assets/icons/arrow_down.png",
+                            ),
+                            color: Color(0xff3c4550),
+                            size: 15,
                           ),
-                          color: Color(0xff3c4550),
-                          size: 15,
                         ),
                         Text(
                           "Album List Plaing",

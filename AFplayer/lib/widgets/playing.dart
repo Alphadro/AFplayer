@@ -15,6 +15,30 @@ class _playing extends State<playing> {
   Duration duration = Duration.zero;
   Duration position = Duration.zero;
   late double _currentSliderValueTrText = 25;
+  String formatTime(int seconds) {
+    return '${(Duration(seconds: seconds))}'.split('.')[0].padLeft(8, '0');
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    player.onPlayerStateChanged.listen((state) {
+      setState(() {
+        isPlaying = state == PlayerState.playing;
+      });
+    });
+    player.onDurationChanged.listen((newDuration) {
+      setState(() {
+        duration = newDuration;
+      });
+    });
+    player.onPositionChanged.listen((newPosition) {
+      setState(() {
+        position = newPosition;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
