@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Album.dart';
 import 'package:flutter_application_1/widgets/playing.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -186,7 +187,10 @@ class _pageState extends State<Page1> {
                               ),
                               onTap: () {
                                 setState(() {
-                                  print('yes');
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: ((context) => PageAlbum())));
                                 });
                               },
                             ),
