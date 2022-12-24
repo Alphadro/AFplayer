@@ -41,8 +41,9 @@ class _pageState extends State<Page3> {
                                 child: f1
                                     ? GestureDetector(
                                         onTap: () {
-                                          f1 = false;
-                                          setState(() {});
+                                          setState(() {
+                                            bool f1 = true;
+                                          });
                                         },
                                         child: ImageIcon(
                                           AssetImage(
@@ -55,8 +56,9 @@ class _pageState extends State<Page3> {
                                         )
                                     : GestureDetector(
                                         onTap: () {
-                                          f1 = true;
-                                          setState(() {});
+                                          setState(() {
+                                            bool f1 = false;
+                                          });
                                         },
                                         child: ImageIcon(
                                           AssetImage(
