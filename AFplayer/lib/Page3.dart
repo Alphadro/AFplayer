@@ -41,7 +41,7 @@ class _pageState extends State<Page3> {
                                 child: f1
                                     ? GestureDetector(
                                         onTap: () {
-                                          bool f1 = true;
+                                          f1 = false;
                                           setState(() {});
                                         },
                                         child: ImageIcon(
@@ -49,12 +49,13 @@ class _pageState extends State<Page3> {
                                             "assets/icons/fave.png",
                                           ),
                                           color: Color(0xff6f2dff),
-                                          // Colors
-                                        ),
-                                      )
+                                        )
+
+                                        // Colors
+                                        )
                                     : GestureDetector(
                                         onTap: () {
-                                          bool f1 = false;
+                                          f1 = true;
                                           setState(() {});
                                         },
                                         child: ImageIcon(
@@ -62,7 +63,6 @@ class _pageState extends State<Page3> {
                                             "assets/icons/fave_b.png",
                                           ),
                                           color: Color(0xff6f2dff),
-                                          // Colors
                                         ),
                                       )),
                           ),

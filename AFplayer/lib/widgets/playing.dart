@@ -1,4 +1,3 @@
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -10,35 +9,7 @@ class playing extends StatefulWidget {
 }
 
 class _playing extends State<playing> {
-  final player = AudioPlayer();
-  bool isPlaying = false;
-  Duration duration = Duration.zero;
-  Duration position = Duration.zero;
-  late double _currentSliderValueTrText = 25;
-  String formatTime(int seconds) {
-    return '${(Duration(seconds: seconds))}'.split('.')[0].padLeft(8, '0');
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    player.onPlayerStateChanged.listen((state) {
-      setState(() {
-        isPlaying = state == PlayerState.playing;
-      });
-    });
-    player.onDurationChanged.listen((newDuration) {
-      setState(() {
-        duration = newDuration;
-      });
-    });
-    player.onPositionChanged.listen((newPosition) {
-      setState(() {
-        position = newPosition;
-      });
-    });
-  }
-
+  double _currentvalue = 0;
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -47,7 +18,7 @@ class _playing extends State<playing> {
         splitScreenMode: true,
         builder: (context, child) {
           return Container(
-              height: 100,
+              height: 110,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: Color(0xff262932),
@@ -120,45 +91,62 @@ class _playing extends State<playing> {
                           ),
                         ],
                       ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Text(
-                            _currentSliderValueTrText.toString(),
-                            style: TextStyle(fontSize: 20),
-                          ),
-                        ],
-                      ),
                       Column(children: [
-                        Stack(children: [
-                          SliderTheme(
-                            data: const SliderThemeData(
-                                trackHeight: 2,
-                                thumbColor: Color(0xff36383e),
-                                overlayColor: Color(0xff36383e),
-                                thumbShape: RoundSliderThumbShape(
-                                    enabledThumbRadius: 6)),
-                            child: Container(
-                              height: 15,
-                              width: 350,
-                              child: Slider(
-                                activeColor: const Color(0xff6f2dff),
-                                thumbColor: Color(0xff6f2dff),
-                                inactiveColor: Color(0xff36383e),
-                                value: position.inSeconds.toDouble(),
-                                min: 0,
-                                max: duration.inSeconds.toDouble(),
-                                onChanged: (value) {
-                                  final Position =
-                                      Duration(seconds: value.toInt());
-                                  player.seek(position);
-                                  player.resume();
-                                },
-                              ),
+                        SliderTheme(
+                          data: const SliderThemeData(
+                              trackHeight: 2,
+                              thumbColor: Color(0xff36383e),
+                              overlayColor: Color(0xff36383e),
+                              thumbShape:
+                                  RoundSliderThumbShape(enabledThumbRadius: 6)),
+                          child: Container(
+                            height: 20.h,
+                            width: 350.w,
+                            child: Slider(
+                              activeColor: const Color(0xff6f2dff),
+                              thumbColor: Color(0xff6f2dff),
+                              inactiveColor: Color(0xff36383e),
+                              value: _currentvalue,
+                              min: 0,
+                              max: 10,
+                              onChanged: (value) {
+                                setState(() {
+                                  _currentvalue = value;
+                                });
+                              },
                             ),
                           ),
-                        ])
-                      ])
+                        ),
+                        Row(
+                          children: [
+                            Container(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                "2:23",
+                                style: TextStyle(
+                                  fontFamily: "IranwebSanse",
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xff3c4550),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 300,
+                            ),
+                            Container(
+                              alignment: Alignment.centerRight,
+                              child: Text(
+                                "3:15",
+                                style: TextStyle(
+                                  fontFamily: "IranwebSanse",
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xff909297),
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
+                      ]),
                     ])),
               ));
         });

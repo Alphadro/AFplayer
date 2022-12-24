@@ -7,18 +7,46 @@ class Search extends StatefulWidget {
 }
 
 class _pageState extends State<Search> {
+  void updateList(String value) {}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Color(0xff202128),
-        child: const Center(
-          child: Text(
-            'Search ',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-        ),
-      ),
-    );
+        backgroundColor: Color(0xff1c1e25),
+        body: Padding(
+          padding: EdgeInsets.all(16),
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Search for a Music',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                TextField(
+                    style: TextStyle(color: Colors.white),
+                    decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        iconColor: Colors.white,
+                        focusColor: Colors.white,
+                        hoverColor: Colors.green,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide.none),
+                        hintText: "Search",
+                        prefixIcon: Icon(Icons.search),
+                        prefixIconColor: Colors.black)),
+                SizedBox(
+                  height: 20,
+                ),
+                Expanded(child: ListView())
+              ]),
+        ));
   }
 }
