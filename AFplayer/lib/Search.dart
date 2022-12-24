@@ -29,18 +29,18 @@ class _pageState extends State<Search> {
                   height: 20,
                 ),
                 TextField(
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.black),
                     decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
-                        iconColor: Colors.white,
-                        focusColor: Colors.white,
-                        hoverColor: Colors.green,
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide.none),
                         hintText: "Search",
-                        prefixIcon: Icon(Icons.search),
+                        prefixIcon: Icon(
+                          Icons.search,
+                          color: Colors.black,
+                        ),
                         prefixIconColor: Colors.black)),
                 SizedBox(
                   height: 20,
