@@ -18,7 +18,7 @@ class _playing extends State<playing> {
         splitScreenMode: true,
         builder: (context, child) {
           return Container(
-              height: 110,
+              height: 110.h,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: Color(0xff262932),
@@ -37,7 +37,7 @@ class _playing extends State<playing> {
                                   child: Image.asset(
                                       'assets/images/cover_img.png'))),
                           SizedBox(
-                            width: 10,
+                            width: 10.w,
                           ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -131,7 +131,7 @@ class _playing extends State<playing> {
                               ),
                             ),
                             SizedBox(
-                              width: 300,
+                              width: 271.w,
                             ),
                             Container(
                               alignment: Alignment.centerRight,

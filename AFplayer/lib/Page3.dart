@@ -127,10 +127,10 @@ class _pageState extends State<Page3> {
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              SizedBox(height: 30),
+                              SizedBox(height: 30.h),
                               Container(
-                                width: 200,
-                                height: 200,
+                                width: 200.w,
+                                height: 200.h,
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
                                       image: AssetImage(
@@ -155,7 +155,7 @@ class _pageState extends State<Page3> {
                                   ),
                                 ),
                               ),
-                              SizedBox(height: 30),
+                              SizedBox(height: 30.h),
                               Container(
                                 height: 30.h,
                                 child: Text(
@@ -181,7 +181,7 @@ class _pageState extends State<Page3> {
                                 ),
                               ),
                               SizedBox(
-                                height: 30,
+                                height: 30.h,
                               ),
                             ]),
                       ),
