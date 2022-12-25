@@ -54,6 +54,7 @@ class _pageState extends State<Page1> {
         splitScreenMode: true,
         builder: (context, child) {
           return Scaffold(
+              drawer: NavegationDrawer(),
               backgroundColor: primaryColor,
               appBar: AppBar(
                 centerTitle: true,
@@ -287,24 +288,6 @@ class _pageState extends State<Page1> {
                 elevation: 1,
                 shadowColor: Colors.grey,
                 leadingWidth: 50,
-                leading: Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          s1 = true;
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: ((context) => Setting())));
-                        });
-                      },
-                      child: const ImageIcon(
-                        AssetImage("assets/icons/menu.png"),
-                        size: 25,
-                        color: Color(0xff3c4550),
-                      ),
-                    )),
                 actions: [
                   Padding(
                       padding: const EdgeInsets.only(right: 20),
