@@ -36,13 +36,11 @@ class NavegationDrawer extends StatelessWidget {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             //=> Background Linear Gradient
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
             colors: [
-              Color(0xffb5e48c),
-              Color(0xff34a0a4),
-              Color(0xff1a759f),
-              Color(0xff184e77),
+              Color(0xad6f2dff),
+              Color(0xff6f2dff),
             ],
           ),
         ),
@@ -50,9 +48,12 @@ class NavegationDrawer extends StatelessWidget {
           top: MediaQuery.of(context).padding.top,
           bottom: 24,
         ),
-        child: Text(
-          "AFplayer",
-          style: TextStyle(fontSize: 25, color: Colors.black),
+        child: Align(
+          alignment: Alignment.center,
+          child: Text(
+            "AFplayer",
+            style: TextStyle(fontSize: 25, color: Colors.black),
+          ),
         ),
       );
 
