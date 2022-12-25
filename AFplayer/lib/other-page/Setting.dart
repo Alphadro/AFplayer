@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-const primaryColor = Color(0xff1c1e25);
+import 'package:flutter_application_1/widgets/colors.dart';
 
 class Setting extends StatefulWidget {
   const Setting({Key? key}) : super(key: key);
@@ -23,43 +22,51 @@ class NavegationDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+        backgroundColor: Palette.primary,
         child: SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [buildHeader(context), buildMenuItems(context)],
-      ),
-    ));
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [buildHeader(context), buildMenuItems(context)],
+          ),
+        ));
   }
 
-  Widget buildHeader(BuildContext context) => Container(
-        height: 150,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            //=> Background Linear Gradient
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Color(0xad6f2dff),
-              Color(0xff6f2dff),
-            ],
+  Widget buildHeader(BuildContext context) => Opacity(
+        opacity: 0.75,
+        child: Container(
+          height: 150,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              //=> Background Linear Gradient
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Color.fromARGB(255, 165, 124, 253),
+                Color.fromARGB(255, 144, 94, 250),
+                Color.fromARGB(255, 132, 76, 253),
+                Palette1.primary,
+                Color.fromARGB(255, 132, 76, 253),
+                Color.fromARGB(255, 144, 94, 250),
+                Color.fromARGB(255, 165, 124, 253),
+              ],
+            ),
           ),
-        ),
-        padding: EdgeInsets.only(
-          top: MediaQuery.of(context).padding.top,
-          bottom: 24,
-        ),
-        child: Align(
-          alignment: Alignment.center,
-          child: Text(
-            "AFplayer",
-            style: TextStyle(fontSize: 25, color: Colors.black),
+          padding: EdgeInsets.only(
+            top: MediaQuery.of(context).padding.top,
+            bottom: 24,
+          ),
+          child: Align(
+            alignment: Alignment.center,
+            child: Text(
+              "AFplayer",
+              style: TextStyle(fontSize: 25, color: Colors.black),
+            ),
           ),
         ),
       );
 
   Widget buildMenuItems(BuildContext context) => Container(
-        height: 700,
-        color: primaryColor,
+        height: 600,
         padding: EdgeInsets.all(24),
         child: Wrap(
           children: [

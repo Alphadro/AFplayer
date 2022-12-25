@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Page3.dart';
 import 'package:flutter_application_1/Setting.dart';
+import 'package:flutter_application_1/widgets/colors.dart';
 import 'package:flutter_application_1/widgets/playing.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,8 +13,6 @@ class Page2 extends StatefulWidget {
   @override
   _pageState createState() => _pageState();
 }
-
-const primaryColor = Color(0xff1c1e25);
 
 class _pageState extends State<Page2> {
   bool t1 = true;
@@ -39,7 +38,7 @@ class _pageState extends State<Page2> {
         builder: (context, child) {
           return Scaffold(
             drawer: NavegationDrawer(),
-            backgroundColor: primaryColor,
+            backgroundColor: Palette.primary,
             appBar: AppBar(
                 centerTitle: true,
                 title: Text(
@@ -49,7 +48,7 @@ class _pageState extends State<Page2> {
                       fontWeight: FontWeight.w400,
                     ),
                     "My Music"),
-                backgroundColor: primaryColor,
+                backgroundColor: Palette.primary,
                 elevation: 1,
                 shadowColor: Colors.grey,
                 leadingWidth: 50,
@@ -95,7 +94,7 @@ class _pageState extends State<Page2> {
               Padding(
                 padding: EdgeInsets.only(left: 10, right: 10, top: 12),
                 child: Container(
-                    color: primaryColor,
+                    color: Palette.primary,
                     child: GridView.count(
                         crossAxisCount: 3,
                         mainAxisSpacing: 14,
@@ -105,7 +104,7 @@ class _pageState extends State<Page2> {
                           return Card(
                               elevation: 0,
                               clipBehavior: Clip.hardEdge,
-                              color: primaryColor,
+                              color: Palette.primary,
                               child:
                                   Stack(alignment: Alignment.center, children: [
                                 Positioned(

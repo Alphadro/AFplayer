@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Album.dart';
+import 'package:flutter_application_1/widgets/colors.dart';
 import 'package:flutter_application_1/widgets/playing.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,8 +8,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'Page3.dart';
 import 'Search.dart';
 import 'Setting.dart';
-
-const primaryColor = Color(0xff1c1e25);
 
 class Page1 extends StatefulWidget {
   const Page1({Key? key}) : super(key: key);
@@ -55,14 +54,14 @@ class _pageState extends State<Page1> {
         builder: (context, child) {
           return Scaffold(
               drawer: NavegationDrawer(),
-              backgroundColor: primaryColor,
+              backgroundColor: Palette.primary,
               appBar: AppBar(
                 centerTitle: true,
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     PopupMenuButton(
-                        color: Color(0xff1c1e25),
+                        color: Palette.primary,
                         child: Text(
                           'Filter',
                           style: TextStyle(
@@ -130,7 +129,7 @@ class _pageState extends State<Page1> {
                       width: 18,
                     ),
                     PopupMenuButton(
-                        color: Color(0xff1c1e25),
+                        color: Palette.primary,
                         child: Text(
                           'Arrange',
                           style: TextStyle(
@@ -218,7 +217,7 @@ class _pageState extends State<Page1> {
                       width: 18,
                     ),
                     PopupMenuButton(
-                        color: Color(0xff1c1e25),
+                        color: Palette.primary,
                         child: Text(
                           'View',
                           style: TextStyle(
@@ -284,7 +283,7 @@ class _pageState extends State<Page1> {
                         }),
                   ],
                 ),
-                backgroundColor: primaryColor,
+                backgroundColor: Palette.primary,
                 elevation: 1,
                 shadowColor: Colors.grey,
                 leadingWidth: 50,
@@ -313,7 +312,7 @@ class _pageState extends State<Page1> {
                 Padding(
                   padding: const EdgeInsets.only(left: 10, right: 10, top: 12),
                   child: Container(
-                    color: primaryColor,
+                    color: Palette.primary,
                     child: GridView.count(
                       crossAxisCount: 3,
                       mainAxisSpacing: 14,
@@ -323,7 +322,7 @@ class _pageState extends State<Page1> {
                         return Card(
                             elevation: 0,
                             clipBehavior: Clip.hardEdge,
-                            color: primaryColor,
+                            color: Palette.primary,
                             child:
                                 Stack(alignment: Alignment.center, children: [
                               Positioned(

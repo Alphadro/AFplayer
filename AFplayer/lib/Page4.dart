@@ -5,13 +5,12 @@ import 'package:flutter_application_1/Theme/theme3.dart';
 import 'package:flutter_application_1/Theme/theme4.dart';
 import 'package:flutter_application_1/Theme/theme5.dart';
 import 'package:flutter_application_1/Theme/theme6.dart';
+import 'package:flutter_application_1/widgets/colors.dart';
 import 'package:flutter_application_1/widgets/playing.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'Search.dart';
 import 'Setting.dart';
-
-const primaryColor = Color(0xff1c1e25);
 
 class Page4 extends StatefulWidget {
   const Page4({Key? key}) : super(key: key);
@@ -41,7 +40,7 @@ class _pageState extends State<Page4> {
                     fontWeight: FontWeight.w400,
                   ),
                   "For me"),
-              backgroundColor: primaryColor,
+              backgroundColor: Palette.primary,
               elevation: 1,
               shadowColor: Colors.grey,
               leadingWidth: 50,
@@ -66,7 +65,7 @@ class _pageState extends State<Page4> {
                     )),
               ]),
           body: Container(
-            color: primaryColor,
+            color: Palette.primary,
             child: Column(
               children: [
                 Container(
@@ -273,7 +272,7 @@ class _pageState extends State<Page4> {
                   child: Stack(children: [
                     Container(
                       height: 376.3,
-                      color: primaryColor,
+                      color: Palette.primary,
                       child: Expanded(
                         child: SizedBox(
                           height: 300,
