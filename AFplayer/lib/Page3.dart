@@ -4,7 +4,7 @@ import 'package:flutter_application_1/widgets/colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_application_1/Page2.dart';
 
-import 'Setting.dart';
+import 'other-page/Setting.dart';
 
 class Page3 extends StatefulWidget {
   const Page3({Key? key}) : super(key: key);
@@ -48,7 +48,7 @@ class _pageState extends State<Page3> {
                                           AssetImage(
                                             "assets/icons/fave.png",
                                           ),
-                                          color: Color(0xff6f2dff),
+                                          color: Palette1.primary,
                                         )
 
                                         // Colors
@@ -62,7 +62,7 @@ class _pageState extends State<Page3> {
                                           AssetImage(
                                             "assets/icons/fave_b.png",
                                           ),
-                                          color: Color(0xff6f2dff),
+                                          color: Palette1.primary,
                                         ),
                                       )),
                           ),
@@ -201,8 +201,8 @@ class _pageState extends State<Page3> {
                                 height: 20.h,
                                 width: 350.w,
                                 child: Slider(
-                                  activeColor: const Color(0xff6f2dff),
-                                  thumbColor: Color(0xff6f2dff),
+                                  activeColor: Palette1.primary,
+                                  thumbColor: Palette1.primary,
                                   inactiveColor: Color(0xff36383e),
                                   value: _currentvalue,
                                   min: 0,
@@ -267,7 +267,7 @@ class _pageState extends State<Page3> {
                                     AssetImage(
                                       "assets/icons/rep.png",
                                     ),
-                                    color: Color(0xff6f2dff),
+                                    color: Palette1.primary,
                                   ),
                                 ),
                               ),
@@ -304,7 +304,7 @@ class _pageState extends State<Page3> {
                                   ),
                                   CircleAvatar(
                                     radius: 29,
-                                    backgroundColor: Color(0xff6f2dff),
+                                    backgroundColor: Palette1.primary,
                                   ),
                                   ImageIcon(
                                     AssetImage(
@@ -334,7 +334,7 @@ class _pageState extends State<Page3> {
                                   AssetImage(
                                     "assets/icons/set.png",
                                   ),
-                                  color: Color(0xff6f2dff),
+                                  color: Palette1.primary,
                                 ),
                               ),
                             ),

@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Album.dart';
+import 'package:flutter_application_1/other-page/Album.dart';
 import 'package:flutter_application_1/widgets/colors.dart';
 import 'package:flutter_application_1/widgets/playing.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'Page3.dart';
-import 'Search.dart';
-import 'Setting.dart';
+import 'other-page/Search.dart';
+import 'other-page/Setting.dart';
+
+var scaffoldkey = GlobalKey<ScaffoldState>();
 
 class Page1 extends StatefulWidget {
   const Page1({Key? key}) : super(key: key);
@@ -53,6 +55,7 @@ class _pageState extends State<Page1> {
         splitScreenMode: true,
         builder: (context, child) {
           return Scaffold(
+              key: scaffoldkey,
               drawer: NavegationDrawer(),
               backgroundColor: Palette.primary,
               appBar: AppBar(
@@ -287,6 +290,13 @@ class _pageState extends State<Page1> {
                 elevation: 1,
                 shadowColor: Colors.grey,
                 leadingWidth: 50,
+                leading: IconButton(
+                    iconSize: 50,
+                    color: Color(0xff3c4550),
+                    onPressed: () {
+                      scaffoldkey.currentState?.openDrawer();
+                    },
+                    icon: ImageIcon(AssetImage('assets/icons/menu.png'))),
                 actions: [
                   Padding(
                       padding: const EdgeInsets.only(right: 20),
@@ -345,22 +355,79 @@ class _pageState extends State<Page1> {
                                 },
                               ),
                               const Positioned(
-                                top: 2,
-                                left: 5,
+                                top: 4,
+                                left: 7,
                                 child: ImageIcon(
-                                  AssetImage("assets/icons/folder.png"),
+                                  AssetImage("assets/icons/circlemusic.png"),
                                   size: 15,
                                   color: Colors.white,
                                 ),
                               ),
-                              const Positioned(
+                              Positioned(
                                 top: 2,
-                                right: 5,
-                                child: ImageIcon(
-                                  AssetImage("assets/icons/menu.png"),
-                                  size: 15,
-                                  color: Colors.white,
-                                ),
+                                right: 3,
+                                child: PopupMenuButton(
+                                    color: Palette.primary,
+                                    child: ImageIcon(
+                                      AssetImage('assets/icons/menu.png'),
+                                      color: Colors.white,
+                                      size: 25,
+                                    ),
+                                    itemBuilder: (BuildContext context) {
+                                      return [
+                                        PopupMenuItem(
+                                          padding: EdgeInsets.all(10),
+                                          child: Text(
+                                            'Delete Music',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 12,
+                                              fontFamily: "IranwebSanse",
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                          ),
+                                          onTap: () {
+                                            setState(() {
+                                              print('yes');
+                                            });
+                                          },
+                                        ),
+                                        PopupMenuItem(
+                                          padding: EdgeInsets.all(10),
+                                          child: Text(
+                                            'Add to Play List',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 12,
+                                              fontFamily: "IranwebSanse",
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                          ),
+                                          onTap: () {
+                                            setState(() {
+                                              print('yes');
+                                            });
+                                          },
+                                        ),
+                                        PopupMenuItem(
+                                          padding: EdgeInsets.all(10),
+                                          child: Text(
+                                            'Share Music',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 12,
+                                              fontFamily: "IranwebSanse",
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                          ),
+                                          onTap: () {
+                                            setState(() {
+                                              print('yes');
+                                            });
+                                          },
+                                        ),
+                                      ];
+                                    }),
                               ),
                               Positioned(
                                 bottom: 11,

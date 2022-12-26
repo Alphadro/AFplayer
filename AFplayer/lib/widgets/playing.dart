@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widgets/colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class playing extends StatefulWidget {
@@ -103,8 +104,8 @@ class _playing extends State<playing> {
                             height: 20.h,
                             width: 350.w,
                             child: Slider(
-                              activeColor: const Color(0xff6f2dff),
-                              thumbColor: Color(0xff6f2dff),
+                              activeColor: Palette1.primary,
+                              thumbColor: Palette1.primary,
                               inactiveColor: Color(0xff36383e),
                               value: _currentvalue,
                               min: 0,

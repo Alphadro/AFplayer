@@ -1,3 +1,5 @@
+import 'package:flutter_application_1/widgets/colors.dart';
+
 import 'Page2.dart';
 import 'page1.dart';
 import 'package:flutter/material.dart';
@@ -62,7 +64,7 @@ class _homepage extends State<HomePage> {
                 iconSize: 24,
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                 duration: Duration(milliseconds: 400),
-                tabBackgroundColor: Color(0xff6f2dff),
+                tabBackgroundColor: Palette1.primary,
                 color: Color(0xff909297),
                 tabs: [
                   GButton(

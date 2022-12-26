@@ -41,7 +41,7 @@ class _pageState extends State<PageAlbum> {
                       height: 250,
                       child: Opacity(
                         opacity: 0.8,
-                        child: Image.asset('assets/icons/images/cover_img.png'),
+                        child: Image.asset('assets/images/cover_img.png'),
                       ),
                     ),
                   ),
@@ -72,7 +72,7 @@ class _pageState extends State<PageAlbum> {
                                     child: ClipRRect(
                                         borderRadius: BorderRadius.circular(8),
                                         child: Image.asset(
-                                            'assets/icons/images/cover_img.png'))),
+                                            'assets/images/cover_img.png'))),
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(top: 10),

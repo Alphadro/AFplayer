@@ -12,6 +12,7 @@ class _pageState extends State<Setting> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: NavegationDrawer(),
+      appBar: AppBar(),
     );
   }
 }
@@ -40,15 +41,7 @@ class NavegationDrawer extends StatelessWidget {
               //=> Background Linear Gradient
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [
-                Color.fromARGB(255, 165, 124, 253),
-                Color.fromARGB(255, 144, 94, 250),
-                Color.fromARGB(255, 132, 76, 253),
-                Palette1.primary,
-                Color.fromARGB(255, 132, 76, 253),
-                Color.fromARGB(255, 144, 94, 250),
-                Color.fromARGB(255, 165, 124, 253),
-              ],
+              colors: [Color(0xffc165dd), Color(0xff5c27fe)],
             ),
           ),
           padding: EdgeInsets.only(
@@ -77,9 +70,6 @@ class NavegationDrawer extends StatelessWidget {
               ),
               onTap: () {},
             ),
-            Divider(
-              color: Colors.white,
-            ),
             ListTile(
               title: Text(
                 "Hidden Songs",
@@ -87,18 +77,12 @@ class NavegationDrawer extends StatelessWidget {
               ),
               onTap: () {},
             ),
-            Divider(
-              color: Colors.white,
-            ),
             ListTile(
               title: Text(
                 "Hidden Songs",
                 style: TextStyle(color: Colors.white),
               ),
               onTap: () {},
-            ),
-            Divider(
-              color: Colors.white,
             ),
             ListTile(
               title: Text(
