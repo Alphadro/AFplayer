@@ -1,13 +1,13 @@
 import 'package:flutter_application_1/widgets/colors.dart';
 
-import 'Page2.dart';
-import 'page1.dart';
+import 'screens-main/Page2.dart';
+import 'screens-main/page1.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_nav_bar/google_nav_bar.dart';
 
-import 'Page3.dart';
-import 'Page4.dart';
+import 'screens-main/Page3.dart';
+import 'screens-main/Page4.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

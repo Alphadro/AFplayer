@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Page3.dart';
+import 'package:flutter_application_1/screens-main/Page3.dart';
 import 'package:flutter_application_1/other-page/Setting.dart';
 import 'package:flutter_application_1/widgets/colors.dart';
 import 'package:flutter_application_1/widgets/playing.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'other-page/Search.dart';
+import '../other-page/Search.dart';
 
 var scaffoldkey = GlobalKey<ScaffoldState>();
 

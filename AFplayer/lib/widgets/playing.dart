@@ -19,7 +19,7 @@ class _playing extends State<playing> {
         splitScreenMode: true,
         builder: (context, child) {
           return Container(
-              height: 110.h,
+              height: 95.h,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: Color(0xff262932),

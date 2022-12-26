@@ -59,11 +59,14 @@ class NavegationDrawer extends StatelessWidget {
       );
 
   Widget buildMenuItems(BuildContext context) => Container(
-        height: 600,
         padding: EdgeInsets.all(24),
         child: Wrap(
           children: [
             ListTile(
+              leading: ImageIcon(
+                AssetImage('assets/icons/circlemusic.png'),
+                color: Palette1.primary,
+              ),
               title: Text(
                 "Hidden Songs",
                 style: TextStyle(color: Colors.white),
@@ -71,6 +74,10 @@ class NavegationDrawer extends StatelessWidget {
               onTap: () {},
             ),
             ListTile(
+              leading: ImageIcon(
+                AssetImage('assets/icons/circlemusic.png'),
+                color: Color(0xffc165dd),
+              ),
               title: Text(
                 "Hidden Songs",
                 style: TextStyle(color: Colors.white),
@@ -78,6 +85,10 @@ class NavegationDrawer extends StatelessWidget {
               onTap: () {},
             ),
             ListTile(
+              leading: ImageIcon(
+                AssetImage('assets/icons/circlemusic.png'),
+                color: Color(0xff5c27fe),
+              ),
               title: Text(
                 "Hidden Songs",
                 style: TextStyle(color: Colors.white),
@@ -85,6 +96,10 @@ class NavegationDrawer extends StatelessWidget {
               onTap: () {},
             ),
             ListTile(
+              leading: ImageIcon(
+                AssetImage('assets/icons/circlemusic.png'),
+                color: Colors.white,
+              ),
               title: Text(
                 "Hidden Songs",
                 style: TextStyle(color: Colors.white),

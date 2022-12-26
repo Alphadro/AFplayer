@@ -9,8 +9,8 @@ import 'package:flutter_application_1/widgets/colors.dart';
 import 'package:flutter_application_1/widgets/playing.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'other-page/Search.dart';
-import 'other-page/Setting.dart';
+import '../other-page/Search.dart';
+import '../other-page/Setting.dart';
 
 var scaffoldkey = GlobalKey<ScaffoldState>();
 

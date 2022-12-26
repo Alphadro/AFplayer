@@ -44,6 +44,7 @@ class _edittag extends State<edittag> {
                 ),
               ),
               TextField(
+                  cursorColor: Colors.black,
                   style: TextStyle(color: Colors.black),
                   decoration: InputDecoration(
                     filled: true,
@@ -63,6 +64,7 @@ class _edittag extends State<edittag> {
                 ),
               ),
               TextField(
+                  cursorColor: Colors.black,
                   style: TextStyle(color: Colors.black),
                   decoration: InputDecoration(
                     filled: true,
@@ -82,6 +84,7 @@ class _edittag extends State<edittag> {
                 ),
               ),
               TextField(
+                  cursorColor: Colors.black,
                   style: TextStyle(color: Colors.black),
                   decoration: InputDecoration(
                     filled: true,
