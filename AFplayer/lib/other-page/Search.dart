@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widgets/colors.dart';
 
 class Search extends StatefulWidget {
   const Search({Key? key}) : super(key: key);
@@ -11,7 +12,7 @@ class _pageState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xff1c1e25),
+        backgroundColor: Palette.primary,
         body: Padding(
           padding: EdgeInsets.all(16),
           child: Column(
@@ -29,6 +30,7 @@ class _pageState extends State<Search> {
                   height: 20,
                 ),
                 TextField(
+                    cursorColor: Colors.black,
                     style: TextStyle(color: Colors.black),
                     decoration: InputDecoration(
                         filled: true,

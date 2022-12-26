@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widgets/edittag.dart';
+import 'package:flutter_application_1/widgets/colors.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_application_1/Page2.dart';
@@ -15,10 +16,9 @@ class Page3 extends StatefulWidget {
 
 class _pageState extends State<Page3> {
   bool f1 = true;
+  double _currentvalue = 0;
   @override
   Widget build(BuildContext context) {
-    late double _currentSliderValueTrText = 25;
-    ThemeData();
     return ScreenUtilInit(
         designSize: const Size(360, 690),
         minTextAdapt: true,
@@ -27,7 +27,7 @@ class _pageState extends State<Page3> {
           return Scaffold(
             body: Container(
               decoration: BoxDecoration(
-                color: Color(0xff202128),
+                color: Palette.primary,
               ),
               child: Center(
                 child: Column(
@@ -198,21 +198,22 @@ class _pageState extends State<Page3> {
                                   overlayColor: Color(0xff36383e),
                                   thumbShape: RoundSliderThumbShape(
                                       enabledThumbRadius: 6)),
-                              child: Slider(
-                                activeColor: const Color(0xff6f2dff),
-                                thumbColor: Color(0xff6f2dff),
-                                inactiveColor: Color(0xff36383e),
-                                value: _currentSliderValueTrText,
-                                min: 1,
-                                max: 100,
-                                label: _currentSliderValueTrText
-                                    .round()
-                                    .toString(),
-                                onChanged: (double newValue) {
-                                  setState(() {
-                                    _currentSliderValueTrText = newValue;
-                                  });
-                                },
+                              child: Container(
+                                height: 20.h,
+                                width: 350.w,
+                                child: Slider(
+                                  activeColor: const Color(0xff6f2dff),
+                                  thumbColor: Color(0xff6f2dff),
+                                  inactiveColor: Color(0xff36383e),
+                                  value: _currentvalue,
+                                  min: 0,
+                                  max: 10,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _currentvalue = value;
+                                    });
+                                  },
+                                ),
                               ),
                             ),
                             Row(
