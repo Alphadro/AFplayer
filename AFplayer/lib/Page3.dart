@@ -5,8 +5,6 @@ import 'package:flutter_application_1/widgets/colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_application_1/Page2.dart';
 
-import 'Setting.dart';
-
 class Page3 extends StatefulWidget {
   const Page3({Key? key}) : super(key: key);
 
