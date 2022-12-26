@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widgets/edittag.dart';
 import 'package:flutter_application_1/widgets/colors.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -75,7 +76,7 @@ class _pageState extends State<Page3> {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: ((context) => Setting())));
+                                            builder: ((context) => edittag())));
                                   });
                                 },
                                 child: Icon(
