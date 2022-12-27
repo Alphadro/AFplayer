@@ -22,14 +22,16 @@ class NavegationDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-        backgroundColor: Palette.primary,
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [buildHeader(context), buildMenuItems(context)],
-          ),
-        ));
+    return SafeArea(
+      child: Drawer(
+          backgroundColor: Palette.primary,
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [buildHeader(context), buildMenuItems(context)],
+            ),
+          )),
+    );
   }
 
   Widget buildHeader(BuildContext context) => Opacity(

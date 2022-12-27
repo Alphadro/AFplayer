@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/other-page/Album.dart';
 import 'package:flutter_application_1/screens-main/Page3.dart';
 import 'package:flutter_application_1/other-page/Setting.dart';
 import 'package:flutter_application_1/widgets/colors.dart';
@@ -20,14 +21,6 @@ class _pageState extends State<Page2> {
   bool t1 = true;
   bool s1 = true;
   List<String> Music = [
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
     "",
     "",
   ];
@@ -133,7 +126,7 @@ class _pageState extends State<Page2> {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (_) => Page3()));
+                                            builder: (_) => PageAlbum()));
                                   },
                                 ),
                                 const Positioned(
@@ -177,24 +170,7 @@ class _pageState extends State<Page2> {
                                           PopupMenuItem(
                                             padding: EdgeInsets.all(10),
                                             child: Text(
-                                              'Add to Play List',
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 12,
-                                                fontFamily: "IranwebSanse",
-                                                fontWeight: FontWeight.w400,
-                                              ),
-                                            ),
-                                            onTap: () {
-                                              setState(() {
-                                                print('yes');
-                                              });
-                                            },
-                                          ),
-                                          PopupMenuItem(
-                                            padding: EdgeInsets.all(10),
-                                            child: Text(
-                                              'Share Music',
+                                              'Rename',
                                               style: TextStyle(
                                                 color: Colors.white,
                                                 fontSize: 12,
@@ -214,7 +190,7 @@ class _pageState extends State<Page2> {
                                 Positioned(
                                     bottom: 11,
                                     child: Text(
-                                      'Like it Doesnt Hurt',
+                                      'Favorite',
                                       style: TextStyle(
                                         fontSize: 11.sp,
                                         color: Colors.white,
@@ -225,7 +201,7 @@ class _pageState extends State<Page2> {
                                 Positioned(
                                     bottom: 0,
                                     child: Text(
-                                      'Danito & Athina',
+                                      '2 song',
                                       style: TextStyle(
                                         color: Color(0xff3c4550),
                                         fontSize: 8.sp,

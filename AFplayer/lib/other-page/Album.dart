@@ -39,10 +39,7 @@ class _pageState extends State<PageAlbum> {
                     child: Container(
                       color: Color.fromARGB(221, 244, 241, 241),
                       height: 250,
-                      child: Opacity(
-                        opacity: 0.8,
-                        child: Image.asset('assets/images/cover_img.png'),
-                      ),
+                      child: Image.asset('assets/images/cover_img.png'),
                     ),
                   ),
                 ),

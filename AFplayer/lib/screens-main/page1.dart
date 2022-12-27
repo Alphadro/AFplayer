@@ -251,7 +251,7 @@ class _pageState extends State<Page1> {
                             PopupMenuItem(
                               padding: EdgeInsets.all(10),
                               child: Text(
-                                'Big CArd',
+                                'Big Card',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 12,
