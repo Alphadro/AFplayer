@@ -64,7 +64,9 @@ class _pageState extends State<Page1> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     PopupMenuButton(
-                        color: Palette.primary,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(14)),
+                        color: Colors.white.withOpacity(0.1),
                         child: Text(
                           'Filter',
                           style: TextStyle(
@@ -132,7 +134,9 @@ class _pageState extends State<Page1> {
                       width: 18,
                     ),
                     PopupMenuButton(
-                        color: Palette.primary,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(14)),
+                        color: Colors.white.withOpacity(0.1),
                         child: Text(
                           'Arrange',
                           style: TextStyle(
@@ -220,7 +224,9 @@ class _pageState extends State<Page1> {
                       width: 18,
                     ),
                     PopupMenuButton(
-                        color: Palette.primary,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(14)),
+                        color: Colors.white.withOpacity(0.1),
                         child: Text(
                           'View',
                           style: TextStyle(
@@ -354,20 +360,23 @@ class _pageState extends State<Page1> {
                                           builder: (_) => Page3()));
                                 },
                               ),
-                              const Positioned(
+                              Positioned(
                                 top: 4,
                                 left: 7,
                                 child: ImageIcon(
                                   AssetImage("assets/icons/circlemusic.png"),
                                   size: 15,
-                                  color: Colors.white,
+                                  color: Colors.white.withOpacity(.5),
                                 ),
                               ),
                               Positioned(
                                 top: 2,
                                 right: 3,
                                 child: PopupMenuButton(
-                                    color: Palette.primary,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(14)),
+                                    color: Colors.white.withOpacity(0.1),
                                     child: ImageIcon(
                                       AssetImage('assets/icons/menu.png'),
                                       color: Colors.white,

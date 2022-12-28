@@ -142,7 +142,10 @@ class _pageState extends State<Page2> {
                                   top: 2,
                                   right: 3,
                                   child: PopupMenuButton(
-                                      color: Palette.primary,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(14)),
+                                      color: Colors.grey.withOpacity(.5),
                                       child: ImageIcon(
                                         AssetImage('assets/icons/menu.png'),
                                         color: Colors.white,

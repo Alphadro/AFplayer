@@ -56,9 +56,9 @@ class _pageState extends State<PageAlbum> {
                         },
                         child: Card(
                           elevation: 0,
-                          color: Color.fromARGB(255, 31, 34, 41),
+                          color: Colors.white.withOpacity(.1),
                           child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Padding(
                                 padding: const EdgeInsets.only(
@@ -102,7 +102,9 @@ class _pageState extends State<PageAlbum> {
                                 width: 200,
                               ),
                               PopupMenuButton(
-                                  color: Palette.primary,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(14)),
+                                  color: Palette.primary.withOpacity(.5),
                                   child: ImageIcon(
                                     AssetImage('assets/icons/menu.png'),
                                     color: Color(0xff3c4550),

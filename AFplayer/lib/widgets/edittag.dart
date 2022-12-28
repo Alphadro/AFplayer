@@ -55,7 +55,7 @@ class _edittag extends State<edittag> {
                       style: TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                         filled: true,
-                        fillColor: Color.fromARGB(255, 31, 34, 41),
+                        fillColor: Colors.white.withOpacity(.1),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide.none),
@@ -85,7 +85,7 @@ class _edittag extends State<edittag> {
                       style: TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                         filled: true,
-                        fillColor: Color.fromARGB(255, 31, 34, 41),
+                        fillColor: Colors.grey.withOpacity(.2),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide.none),
@@ -116,7 +116,7 @@ class _edittag extends State<edittag> {
                       style: TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                         filled: true,
-                        fillColor: Color.fromARGB(255, 31, 34, 41),
+                        fillColor: Colors.grey.withOpacity(.2),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide.none),
