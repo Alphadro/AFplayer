@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widgets/colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class playing extends StatefulWidget {
@@ -18,7 +19,7 @@ class _playing extends State<playing> {
         splitScreenMode: true,
         builder: (context, child) {
           return Container(
-              height: 110.h,
+              height: 95.h,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: Color(0xff262932),
@@ -103,8 +104,8 @@ class _playing extends State<playing> {
                             height: 20.h,
                             width: 350.w,
                             child: Slider(
-                              activeColor: const Color(0xff6f2dff),
-                              thumbColor: Color(0xff6f2dff),
+                              activeColor: Palette1.primary,
+                              thumbColor: Palette1.primary,
                               inactiveColor: Color(0xff36383e),
                               value: _currentvalue,
                               min: 0,

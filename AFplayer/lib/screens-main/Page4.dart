@@ -9,8 +9,10 @@ import 'package:flutter_application_1/widgets/colors.dart';
 import 'package:flutter_application_1/widgets/playing.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'Search.dart';
-import 'Setting.dart';
+import '../other-page/Search.dart';
+import '../other-page/Setting.dart';
+
+var scaffoldkey = GlobalKey<ScaffoldState>();
 
 class Page4 extends StatefulWidget {
   const Page4({Key? key}) : super(key: key);
@@ -30,6 +32,7 @@ class _pageState extends State<Page4> {
       splitScreenMode: true,
       builder: (context, child) {
         return Scaffold(
+          key: scaffoldkey,
           drawer: NavegationDrawer(),
           appBar: AppBar(
               centerTitle: true,
@@ -44,6 +47,13 @@ class _pageState extends State<Page4> {
               elevation: 1,
               shadowColor: Colors.grey,
               leadingWidth: 50,
+              leading: IconButton(
+                  iconSize: 50,
+                  color: Color(0xff3c4550),
+                  onPressed: () {
+                    scaffoldkey.currentState?.openDrawer();
+                  },
+                  icon: ImageIcon(AssetImage('assets/icons/menu.png'))),
               actions: [
                 Padding(
                     padding: const EdgeInsets.only(right: 20),
@@ -290,7 +300,7 @@ class _pageState extends State<Page4> {
                       ),
                     ),
                     const Positioned(
-                        bottom: 5, left: 8, right: 8, child: playing())
+                        bottom: 5, left: 3, right: 3, child: playing())
                   ]),
                 ),
               ],

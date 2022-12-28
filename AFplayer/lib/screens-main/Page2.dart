@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Page3.dart';
-import 'package:flutter_application_1/Setting.dart';
+import 'package:flutter_application_1/other-page/Album.dart';
+import 'package:flutter_application_1/screens-main/Page3.dart';
+import 'package:flutter_application_1/other-page/Setting.dart';
 import 'package:flutter_application_1/widgets/colors.dart';
 import 'package:flutter_application_1/widgets/playing.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'Search.dart';
+import '../other-page/Search.dart';
+
+var scaffoldkey = GlobalKey<ScaffoldState>();
 
 class Page2 extends StatefulWidget {
   const Page2({Key? key}) : super(key: key);
@@ -20,14 +23,6 @@ class _pageState extends State<Page2> {
   List<String> Music = [
     "",
     "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
   ];
   @override
   Widget build(BuildContext context) {
@@ -37,9 +32,17 @@ class _pageState extends State<Page2> {
         splitScreenMode: true,
         builder: (context, child) {
           return Scaffold(
+            key: scaffoldkey,
             drawer: NavegationDrawer(),
             backgroundColor: Palette.primary,
             appBar: AppBar(
+                leading: IconButton(
+                    iconSize: 50,
+                    color: Color(0xff3c4550),
+                    onPressed: () {
+                      scaffoldkey.currentState?.openDrawer();
+                    },
+                    icon: ImageIcon(AssetImage('assets/icons/menu.png'))),
                 centerTitle: true,
                 title: Text(
                     style: TextStyle(
@@ -123,31 +126,71 @@ class _pageState extends State<Page2> {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (_) => Page3()));
+                                            builder: (_) => PageAlbum()));
                                   },
                                 ),
                                 const Positioned(
-                                  top: 2,
-                                  left: 5,
+                                  top: 4,
+                                  left: 7,
                                   child: ImageIcon(
                                     AssetImage("assets/icons/folder.png"),
                                     size: 15,
                                     color: Colors.white,
                                   ),
                                 ),
-                                const Positioned(
+                                Positioned(
                                   top: 2,
-                                  right: 5,
-                                  child: ImageIcon(
-                                    AssetImage("assets/icons/menu.png"),
-                                    size: 15,
-                                    color: Colors.white,
-                                  ),
+                                  right: 3,
+                                  child: PopupMenuButton(
+                                      color: Palette.primary,
+                                      child: ImageIcon(
+                                        AssetImage('assets/icons/menu.png'),
+                                        color: Colors.white,
+                                        size: 25,
+                                      ),
+                                      itemBuilder: (BuildContext context) {
+                                        return [
+                                          PopupMenuItem(
+                                            padding: EdgeInsets.all(10),
+                                            child: Text(
+                                              'Delete Music',
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 12,
+                                                fontFamily: "IranwebSanse",
+                                                fontWeight: FontWeight.w400,
+                                              ),
+                                            ),
+                                            onTap: () {
+                                              setState(() {
+                                                print('yes');
+                                              });
+                                            },
+                                          ),
+                                          PopupMenuItem(
+                                            padding: EdgeInsets.all(10),
+                                            child: Text(
+                                              'Rename',
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 12,
+                                                fontFamily: "IranwebSanse",
+                                                fontWeight: FontWeight.w400,
+                                              ),
+                                            ),
+                                            onTap: () {
+                                              setState(() {
+                                                print('yes');
+                                              });
+                                            },
+                                          ),
+                                        ];
+                                      }),
                                 ),
                                 Positioned(
                                     bottom: 11,
                                     child: Text(
-                                      'Like it Doesnt Hurt',
+                                      'Favorite',
                                       style: TextStyle(
                                         fontSize: 11.sp,
                                         color: Colors.white,
@@ -158,7 +201,7 @@ class _pageState extends State<Page2> {
                                 Positioned(
                                     bottom: 0,
                                     child: Text(
-                                      'Danito & Athina',
+                                      '2 song',
                                       style: TextStyle(
                                         color: Color(0xff3c4550),
                                         fontSize: 8.sp,

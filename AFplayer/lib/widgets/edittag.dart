@@ -1,7 +1,6 @@
-import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widgets/colors.dart';
 
 class edittag extends StatefulWidget {
   @override
@@ -21,84 +20,132 @@ class _edittag extends State<edittag> {
       backgroundColor: Color(0xff1c1e25),
       body: Padding(
           padding: const EdgeInsets.all(15),
-          child: Column(
-            children: [
-              Container(
-                color: Colors.grey,
-                child: Text(
-                  'pic of Song',
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, right: 20, top: 40),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Container(
+                      color: Color.fromARGB(221, 244, 241, 241),
+                      height: 250,
+                      child: Image.asset('assets/images/cover_img.png'),
+                    ),
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 12,
-              ),
-              Container(
-                padding: EdgeInsets.only(left: 15),
-                child: Text(
-                  "Edit Song Name",
-                  style: TextStyle(fontSize: 20),
+                SizedBox(
+                  height: 30,
                 ),
-              ),
-              TextField(
-                  style: TextStyle(color: Colors.black),
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide.none),
-                  )),
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-                padding: EdgeInsets.only(left: 15),
-                child: Text(
-                  "Edit Album Name",
-                  style: TextStyle(fontSize: 20),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    child: Text(
+                      "Edit Song Name",
+                      style: TextStyle(fontSize: 15, color: Colors.white),
+                    ),
+                  ),
                 ),
-              ),
-              TextField(
-                  style: TextStyle(color: Colors.black),
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide.none),
-                  )),
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-                padding: EdgeInsets.only(left: 15),
-                child: Text(
-                  "Edit Artist Name",
-                  style: TextStyle(fontSize: 20),
+                SizedBox(height: 5),
+                Container(
+                  height: 50,
+                  width: 400,
+                  child: TextField(
+                      cursorColor: Colors.black,
+                      style: TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Color.fromARGB(255, 31, 34, 41),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide.none),
+                      )),
                 ),
-              ),
-              TextField(
-                  style: TextStyle(color: Colors.black),
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide.none),
-                  )),
-              Container(
-                alignment: Alignment.center,
-                padding: EdgeInsets.only(bottom: 25),
-                child: Text(
-                  "Confirm",
-                  style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+                SizedBox(
+                  height: 20,
                 ),
-              )
-            ],
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    padding: EdgeInsets.only(left: 5),
+                    child: Text(
+                      "Edit Album Name",
+                      style: TextStyle(fontSize: 15, color: Colors.white),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Container(
+                  height: 50,
+                  width: 400,
+                  child: TextField(
+                      cursorColor: Colors.black,
+                      style: TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Color.fromARGB(255, 31, 34, 41),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide.none),
+                      )),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    padding: EdgeInsets.only(left: 5),
+                    child: Text(
+                      "Edit Artist Name",
+                      style: TextStyle(fontSize: 15, color: Colors.white),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Container(
+                  color: Color.fromARGB(255, 31, 34, 41),
+                  height: 50,
+                  width: 400,
+                  child: TextField(
+                      cursorColor: Colors.black,
+                      style: TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Color.fromARGB(255, 31, 34, 41),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide.none),
+                      )),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {});
+                  },
+                  child: Text(
+                    "Confirm",
+                    style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ),
+                  style: ButtonStyle(
+                      elevation: MaterialStateProperty.all(12),
+                      backgroundColor:
+                          MaterialStateProperty.all(Palette1.primary),
+                      fixedSize: MaterialStateProperty.all(Size(180, 50)),
+                      side: MaterialStateProperty.all(
+                          BorderSide(color: Colors.black))),
+                )
+              ],
+            ),
           )),
     );
   }

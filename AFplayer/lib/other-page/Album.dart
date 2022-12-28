@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Page3.dart';
+import 'package:flutter_application_1/screens-main/Page3.dart';
 import 'package:flutter_application_1/widgets/colors.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -39,10 +39,7 @@ class _pageState extends State<PageAlbum> {
                     child: Container(
                       color: Color.fromARGB(221, 244, 241, 241),
                       height: 250,
-                      child: Opacity(
-                        opacity: 0.8,
-                        child: Image.asset('assets/icons/images/cover_img.png'),
-                      ),
+                      child: Image.asset('assets/images/cover_img.png'),
                     ),
                   ),
                 ),
@@ -72,7 +69,7 @@ class _pageState extends State<PageAlbum> {
                                     child: ClipRRect(
                                         borderRadius: BorderRadius.circular(8),
                                         child: Image.asset(
-                                            'assets/icons/images/cover_img.png'))),
+                                            'assets/images/cover_img.png'))),
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(top: 10),
