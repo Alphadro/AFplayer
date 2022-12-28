@@ -364,10 +364,9 @@ class _pageState extends State<Page1> {
                                 top: 4,
                                 left: 7,
                                 child: ImageIcon(
-                                  AssetImage("assets/icons/circlemusic.png"),
-                                  size: 15,
-                                  color: Colors.white.withOpacity(.5),
-                                ),
+                                    AssetImage("assets/icons/circlemusic.png"),
+                                    size: 15,
+                                    color: Colors.white),
                               ),
                               Positioned(
                                 top: 2,

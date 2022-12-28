@@ -104,7 +104,7 @@ class _pageState extends State<PageAlbum> {
                               PopupMenuButton(
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(14)),
-                                  color: Palette.primary.withOpacity(.5),
+                                  color: Palette.primary.withOpacity(.9),
                                   child: ImageIcon(
                                     AssetImage('assets/icons/menu.png'),
                                     color: Color(0xff3c4550),
