@@ -86,6 +86,7 @@ class _homepage extends State<HomePage> {
                           "assets/icons/fave.png",
                         ),
                         color: Color(0xffcccccc),
+                        size: 20,
                       ),
                     ),
                     text: 'Favorite',

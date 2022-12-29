@@ -280,19 +280,22 @@ class _pageState extends State<Page4> {
                 ),
                 Expanded(
                   child: Stack(children: [
-                    Container(
-                      height: 376.3,
-                      color: Palette.primary,
-                      child: Expanded(
-                        child: SizedBox(
-                          height: 300,
-                          width: 400,
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                                bottom: 100, left: 65, right: 65),
-                            child: Image(
-                              image: AssetImage(
-                                "assets/images/Tablighat.png",
+                    Padding(
+                      padding: const EdgeInsets.only(top: 15),
+                      child: Container(
+                        height: 376.3,
+                        color: Palette.primary,
+                        child: Expanded(
+                          child: SizedBox(
+                            height: 300,
+                            width: 400,
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                  bottom: 100, left: 65, right: 65),
+                              child: Image(
+                                image: AssetImage(
+                                  "assets/images/Tablighat.png",
+                                ),
                               ),
                             ),
                           ),
