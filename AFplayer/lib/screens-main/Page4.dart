@@ -24,6 +24,7 @@ class Page4 extends StatefulWidget {
 class _pageState extends State<Page4> {
   bool t1 = true;
   bool s1 = true;
+  bool isVisible = false;
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -58,15 +59,7 @@ class _pageState extends State<Page4> {
                 Padding(
                     padding: const EdgeInsets.only(right: 20),
                     child: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          s1 = true;
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: ((context) => Search())));
-                        });
-                      },
+                      onTap: () => setState(() => isVisible = !isVisible),
                       child: const ImageIcon(
                         AssetImage("assets/icons/search.png"),
                         size: 25,
@@ -78,6 +71,25 @@ class _pageState extends State<Page4> {
             color: Palette.primary,
             child: Column(
               children: [
+                if (isVisible)
+                  TextField(
+                      cursorColor: Colors.black,
+                      style: TextStyle(color: Colors.black),
+                      decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8),
+                              borderSide: BorderSide.none),
+                          hintText: "Search",
+                          prefixIcon: Icon(
+                            Icons.search,
+                            color: Colors.black,
+                          ),
+                          prefixIconColor: Colors.black)),
+                SizedBox(
+                  height: 10,
+                ),
                 Container(
                   height: 145.h,
                   color: Colors.white,
