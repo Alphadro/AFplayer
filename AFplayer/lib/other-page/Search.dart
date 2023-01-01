@@ -1,43 +1,30 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/widgets/colors.dart';
 
 class Search extends StatefulWidget {
-  const Search({Key? key}) : super(key: key);
+  const Search({super.key});
+
   @override
-  _pageState createState() => _pageState();
+  State<Search> createState() => _Search();
 }
 
-class _pageState extends State<Search> {
-  void updateList(String value) {}
+class _Search extends State<Search> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Palette.primary,
-        body: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SingleChildScrollView(
-                child: TextField(
-                    cursorColor: Colors.black,
-                    style: TextStyle(color: Colors.black),
-                    decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Colors.white,
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            borderSide: BorderSide.none),
-                        hintText: "Search",
-                        prefixIcon: Icon(
-                          Icons.search,
-                          color: Colors.black,
-                        ),
-                        prefixIconColor: Colors.black)),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Expanded(child: ListView())
-            ]));
+    return TextField(
+        cursorColor: Colors.black,
+        style: TextStyle(color: Colors.black),
+        decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.white,
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+                borderSide: BorderSide.none),
+            hintText: "Search",
+            prefixIcon: Icon(
+              Icons.search,
+              color: Colors.black,
+            ),
+            prefixIconColor: Colors.black));
   }
 }

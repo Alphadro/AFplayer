@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'colors.dart';
@@ -56,7 +55,7 @@ class _edittag extends State<edittag> {
                     style: TextStyle(color: Colors.white),
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: Colors.grey.withOpacity(.2),
+                      fillColor: Colors.white.withOpacity(.09),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
                           borderSide: BorderSide.none),
@@ -86,7 +85,7 @@ class _edittag extends State<edittag> {
                     style: TextStyle(color: Colors.white),
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: Colors.grey.withOpacity(.2),
+                      fillColor: Colors.white.withOpacity(.09),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
                           borderSide: BorderSide.none),
@@ -109,7 +108,6 @@ class _edittag extends State<edittag> {
                 height: 5,
               ),
               Container(
-                color: Color.fromARGB(255, 31, 34, 41),
                 height: 50,
                 width: 400,
                 child: TextField(
@@ -117,7 +115,7 @@ class _edittag extends State<edittag> {
                     style: TextStyle(color: Colors.white),
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: Colors.grey.withOpacity(.2),
+                      fillColor: Colors.white.withOpacity(.09),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
                           borderSide: BorderSide.none),
@@ -126,25 +124,21 @@ class _edittag extends State<edittag> {
               SizedBox(
                 height: 50,
               ),
-              Container(
-                height: 50,
-                width: 130,
-                decoration: BoxDecoration(
-                  color: Palette1.primary.withOpacity(.8),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Center(
+              OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 100),
+                      minimumSize: Size(80, 40),
+                      textStyle: TextStyle(fontSize: 20),
+                      side: BorderSide(
+                        width: 4,
+                        color: Colors.white.withOpacity(.09),
+                      )),
+                  onPressed: () {},
                   child: Text(
-                    "Confirm",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 25,
-                      fontFamily: "IranwebSanse",
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-              )
+                    'Confirm',
+                    style: TextStyle(fontSize: 20, color: Colors.white),
+                  ))
             ],
           )),
         ));

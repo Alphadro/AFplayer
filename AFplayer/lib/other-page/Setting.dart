@@ -23,29 +23,29 @@ class NavegationDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Drawer(
-          backgroundColor: Palette.primary,
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [buildHeader(context), buildMenuItems(context)],
-            ),
-          )),
+      child: Container(
+        width: 275,
+        child: Drawer(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(18),
+                    topRight: Radius.circular(18))),
+            backgroundColor: Color.fromARGB(230, 22, 24, 29),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [buildHeader(context), buildMenuItems(context)],
+              ),
+            )),
+      ),
     );
   }
 
-  Widget buildHeader(BuildContext context) => Opacity(
-      opacity: 0.6,
-      child: Container(
+  Widget buildHeader(BuildContext context) => Container(
+        decoration: BoxDecoration(
+            color: Color.fromARGB(240, 22, 24, 29),
+            borderRadius: BorderRadius.only(topRight: Radius.circular(18))),
         height: 150,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            //=> Background Linear Gradient
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Color(0xffc165dd), Color(0xff5c27fe)],
-          ),
-        ),
         padding: EdgeInsets.only(
           top: MediaQuery.of(context).padding.top,
           bottom: 24,
@@ -59,7 +59,7 @@ class NavegationDrawer extends StatelessWidget {
                   height: 50,
                   child: Image.asset('assets/icons/app_icon_ios.png')),
               SizedBox(
-                width: 10,
+                width: 15,
               ),
               Text(
                 "AFplayer",
@@ -68,16 +68,20 @@ class NavegationDrawer extends StatelessWidget {
             ],
           ),
         ),
-      ));
+      );
 
   Widget buildMenuItems(BuildContext context) => Container(
-        padding: EdgeInsets.all(24),
         child: Wrap(
           children: [
+            Container(
+              color: Colors.white.withOpacity(.2),
+              height: 1,
+            ),
             ListTile(
               leading: ImageIcon(
                 AssetImage('assets/icons/circlemusic.png'),
-                color: Colors.grey,
+                color: Colors.white,
+                size: 35,
               ),
               title: Text(
                 "Hidden Songs",
@@ -91,7 +95,8 @@ class NavegationDrawer extends StatelessWidget {
             ListTile(
               leading: ImageIcon(
                 AssetImage('assets/icons/circlemusic.png'),
-                color: Colors.grey,
+                color: Colors.white,
+                size: 35,
               ),
               title: Text(
                 "Hidden Songs",
@@ -105,7 +110,8 @@ class NavegationDrawer extends StatelessWidget {
             ListTile(
               leading: ImageIcon(
                 AssetImage('assets/icons/circlemusic.png'),
-                color: Colors.grey,
+                color: Colors.white,
+                size: 35,
               ),
               title: Text(
                 "Hidden Songs",
@@ -119,7 +125,8 @@ class NavegationDrawer extends StatelessWidget {
             ListTile(
               leading: ImageIcon(
                 AssetImage('assets/icons/circlemusic.png'),
-                color: Colors.grey,
+                color: Colors.white,
+                size: 35,
               ),
               title: Text(
                 "Hidden Songs",

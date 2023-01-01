@@ -72,21 +72,11 @@ class _pageState extends State<Page4> {
             child: Column(
               children: [
                 if (isVisible)
-                  TextField(
-                      cursorColor: Colors.black,
-                      style: TextStyle(color: Colors.black),
-                      decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
-                              borderSide: BorderSide.none),
-                          hintText: "Search",
-                          prefixIcon: Icon(
-                            Icons.search,
-                            color: Colors.black,
-                          ),
-                          prefixIconColor: Colors.black)),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(8, 10, 8, 0),
+                    child:
+                        SizedBox(height: 40.h, width: 350.w, child: Search()),
+                  ),
                 SizedBox(
                   height: 10,
                 ),

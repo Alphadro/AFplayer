@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/other-page/Album.dart';
-import 'package:flutter_application_1/screens-main/Page3.dart';
+import 'package:flutter_application_1/other-page/Search.dart';
+
 import 'package:flutter_application_1/other-page/Setting.dart';
 import 'package:flutter_application_1/widgets/colors.dart';
 import 'package:flutter_application_1/widgets/playing.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../other-page/Search.dart';
 
 var scaffoldkey = GlobalKey<ScaffoldState>();
 
@@ -79,13 +79,7 @@ class _pageState extends State<Page2> {
                       padding: const EdgeInsets.only(right: 20),
                       child: GestureDetector(
                         onTap: () {
-                          setState(() {
-                            s1 = true;
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: ((context) => Search())));
-                          });
+                          setState(() {});
                         },
                         child: const Icon(
                           Icons.add,
@@ -108,23 +102,13 @@ class _pageState extends State<Page2> {
               Column(
                 children: [
                   if (isVisible)
-                    TextField(
-                        cursorColor: Colors.black,
-                        style: TextStyle(color: Colors.black),
-                        decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Colors.white,
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                borderSide: BorderSide.none),
-                            hintText: "Search",
-                            prefixIcon: Icon(
-                              Icons.search,
-                              color: Colors.black,
-                            ),
-                            prefixIconColor: Colors.black)),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(8, 10, 8, 0),
+                      child:
+                          SizedBox(height: 40.h, width: 350.w, child: Search()),
+                    ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 10),
+                    padding: const EdgeInsets.only(top: 8),
                     child: Container(
                         height: 455.h,
                         child: GridView.count(
@@ -148,7 +132,8 @@ class _pageState extends State<Page2> {
                                             Navigator.push(
                                                 context,
                                                 MaterialPageRoute(
-                                                    builder: (_) => Page3()));
+                                                    builder: (_) =>
+                                                        PageAlbum()));
                                           },
                                           child: Image(
                                             height: 95.h,
@@ -173,8 +158,7 @@ class _pageState extends State<Page2> {
                                             shape: RoundedRectangleBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(14)),
-                                            color:
-                                                Colors.white.withOpacity(0.1),
+                                            color: Colors.grey.withOpacity(.6),
                                             child: ImageIcon(
                                               AssetImage(
                                                   'assets/icons/menu.png'),
