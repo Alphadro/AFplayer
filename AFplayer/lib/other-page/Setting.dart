@@ -52,9 +52,20 @@ class NavegationDrawer extends StatelessWidget {
           ),
           child: Align(
             alignment: Alignment.center,
-            child: Text(
-              "AFplayer",
-              style: TextStyle(fontSize: 25, color: Colors.black),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                    height: 50,
+                    child: Image.asset('assets/icons/app_icon_ios.png')),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  "AFplayer",
+                  style: TextStyle(fontSize: 25, color: Colors.white),
+                ),
+              ],
             ),
           ),
         ),

@@ -20,6 +20,7 @@ class Page2 extends StatefulWidget {
 class _pageState extends State<Page2> {
   bool t1 = true;
   bool s1 = true;
+  bool isVisible = true;
   List<String> Music = [
     "",
     "",
@@ -77,15 +78,7 @@ class _pageState extends State<Page2> {
                   Padding(
                       padding: const EdgeInsets.only(right: 20),
                       child: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            s1 = true;
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: ((context) => Search())));
-                          });
-                        },
+                        onTap: () => setState(() => isVisible = !isVisible),
                         child: const ImageIcon(
                           AssetImage("assets/icons/search.png"),
                           size: 25,
@@ -93,131 +86,28 @@ class _pageState extends State<Page2> {
                         ),
                       )),
                 ]),
-            body: Stack(children: [
-              Padding(
-                padding: EdgeInsets.only(left: 10, right: 10, top: 12),
-                child: Container(
-                    color: Palette.primary,
-                    child: GridView.count(
-                        crossAxisCount: 3,
-                        mainAxisSpacing: 14,
-                        childAspectRatio: 2 / 2.5,
-                        crossAxisSpacing: 7,
-                        children: List<Widget>.generate(Music.length, ($index) {
-                          return Card(
-                              elevation: 0,
-                              clipBehavior: Clip.hardEdge,
-                              color: Palette.primary,
-                              child:
-                                  Stack(alignment: Alignment.center, children: [
-                                Positioned(
-                                  top: 0,
-                                  height: 90.h,
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(10),
-                                    child: const Image(
-                                      image: AssetImage(
-                                          'assets/images/cover_img.png'),
-                                    ),
-                                  ),
-                                ),
-                                GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (_) => PageAlbum()));
-                                  },
-                                ),
-                                const Positioned(
-                                  top: 4,
-                                  left: 7,
-                                  child: ImageIcon(
-                                    AssetImage("assets/icons/folder.png"),
-                                    size: 15,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                Positioned(
-                                  top: 2,
-                                  right: 3,
-                                  child: PopupMenuButton(
-                                      position: PopupMenuPosition.under,
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(14)),
-                                      color: Palette.primary.withOpacity(0.9),
-                                      child: ImageIcon(
-                                        AssetImage('assets/icons/menu.png'),
-                                        color: Colors.white,
-                                        size: 25,
-                                      ),
-                                      itemBuilder: (BuildContext context) {
-                                        return [
-                                          PopupMenuItem(
-                                            padding: EdgeInsets.all(10),
-                                            child: Text(
-                                              'Delete Music',
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 12,
-                                                fontFamily: "IranwebSanse",
-                                                fontWeight: FontWeight.w400,
-                                              ),
-                                            ),
-                                            onTap: () {
-                                              setState(() {
-                                                print('yes');
-                                              });
-                                            },
-                                          ),
-                                          PopupMenuItem(
-                                            padding: EdgeInsets.all(10),
-                                            child: Text(
-                                              'Rename',
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 12,
-                                                fontFamily: "IranwebSanse",
-                                                fontWeight: FontWeight.w400,
-                                              ),
-                                            ),
-                                            onTap: () {
-                                              setState(() {
-                                                print('yes');
-                                              });
-                                            },
-                                          ),
-                                        ];
-                                      }),
-                                ),
-                                Positioned(
-                                    bottom: 11,
-                                    child: Text(
-                                      'Favorite',
-                                      style: TextStyle(
-                                        fontSize: 11.sp,
-                                        color: Colors.white,
-                                        fontFamily: "IranwebSanse",
-                                        fontWeight: FontWeight.w300,
-                                      ),
-                                    )),
-                                Positioned(
-                                    bottom: 0,
-                                    child: Text(
-                                      '2 song',
-                                      style: TextStyle(
-                                        color: Color(0xff3c4550),
-                                        fontSize: 8.sp,
-                                        fontFamily: "IranwebSanse",
-                                        fontWeight: FontWeight.w200,
-                                      ),
-                                    )),
-                              ]));
-                        }))),
-              ),
-              const Positioned(bottom: 5, left: 8, right: 8, child: playing()),
-            ]),
+            body: ListView(
+              children: [
+                if (isVisible)
+                  SingleChildScrollView(
+                    child: TextField(
+                        cursorColor: Colors.black,
+                        style: TextStyle(color: Colors.black),
+                        decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                borderSide: BorderSide.none),
+                            hintText: "Search",
+                            prefixIcon: Icon(
+                              Icons.search,
+                              color: Colors.black,
+                            ),
+                            prefixIconColor: Colors.black)),
+                  ),
+              ],
+            ),
           );
         });
   }
