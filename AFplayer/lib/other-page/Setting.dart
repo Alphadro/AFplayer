@@ -35,7 +35,7 @@ class NavegationDrawer extends StatelessWidget {
   }
 
   Widget buildHeader(BuildContext context) => Opacity(
-        opacity: 0.75,
+        opacity: 0.6,
         child: Container(
           height: 150,
           decoration: const BoxDecoration(
@@ -54,7 +54,7 @@ class NavegationDrawer extends StatelessWidget {
             alignment: Alignment.center,
             child: Text(
               "AFplayer",
-              style: TextStyle(fontSize: 25, color: Colors.black),
+              style: TextStyle(fontSize: 25, color: Colors.white),
             ),
           ),
         ),
@@ -67,7 +67,7 @@ class NavegationDrawer extends StatelessWidget {
             ListTile(
               leading: ImageIcon(
                 AssetImage('assets/icons/circlemusic.png'),
-                color: Palette1.primary,
+                color: Colors.grey,
               ),
               title: Text(
                 "Hidden Songs",
@@ -75,10 +75,13 @@ class NavegationDrawer extends StatelessWidget {
               ),
               onTap: () {},
             ),
+            Divider(
+              color: Colors.white.withOpacity(0.2),
+            ),
             ListTile(
               leading: ImageIcon(
                 AssetImage('assets/icons/circlemusic.png'),
-                color: Color(0xffc165dd),
+                color: Colors.grey,
               ),
               title: Text(
                 "Hidden Songs",
@@ -86,10 +89,13 @@ class NavegationDrawer extends StatelessWidget {
               ),
               onTap: () {},
             ),
+            Divider(
+              color: Colors.white.withOpacity(0.2),
+            ),
             ListTile(
               leading: ImageIcon(
                 AssetImage('assets/icons/circlemusic.png'),
-                color: Color(0xff5c27fe),
+                color: Colors.grey,
               ),
               title: Text(
                 "Hidden Songs",
@@ -97,17 +103,20 @@ class NavegationDrawer extends StatelessWidget {
               ),
               onTap: () {},
             ),
+            Divider(
+              color: Colors.white.withOpacity(0.2),
+            ),
             ListTile(
               leading: ImageIcon(
                 AssetImage('assets/icons/circlemusic.png'),
-                color: Colors.white,
+                color: Colors.grey,
               ),
               title: Text(
                 "Hidden Songs",
                 style: TextStyle(color: Colors.white),
               ),
               onTap: () {},
-            )
+            ),
           ],
         ),
       );
