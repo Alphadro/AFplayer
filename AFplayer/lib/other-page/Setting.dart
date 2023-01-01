@@ -35,41 +35,40 @@ class NavegationDrawer extends StatelessWidget {
   }
 
   Widget buildHeader(BuildContext context) => Opacity(
-        opacity: 0.75,
-        child: Container(
-          height: 150,
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              //=> Background Linear Gradient
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [Color(0xffc165dd), Color(0xff5c27fe)],
-            ),
-          ),
-          padding: EdgeInsets.only(
-            top: MediaQuery.of(context).padding.top,
-            bottom: 24,
-          ),
-          child: Align(
-            alignment: Alignment.center,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                    height: 50,
-                    child: Image.asset('assets/icons/app_icon_ios.png')),
-                SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  "AFplayer",
-                  style: TextStyle(fontSize: 25, color: Colors.white),
-                ),
-              ],
-            ),
+      opacity: 0.6,
+      child: Container(
+        height: 150,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            //=> Background Linear Gradient
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [Color(0xffc165dd), Color(0xff5c27fe)],
           ),
         ),
-      );
+        padding: EdgeInsets.only(
+          top: MediaQuery.of(context).padding.top,
+          bottom: 24,
+        ),
+        child: Align(
+          alignment: Alignment.center,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                  height: 50,
+                  child: Image.asset('assets/icons/app_icon_ios.png')),
+              SizedBox(
+                width: 10,
+              ),
+              Text(
+                "AFplayer",
+                style: TextStyle(fontSize: 25, color: Colors.white),
+              ),
+            ],
+          ),
+        ),
+      ));
 
   Widget buildMenuItems(BuildContext context) => Container(
         padding: EdgeInsets.all(24),
@@ -78,7 +77,7 @@ class NavegationDrawer extends StatelessWidget {
             ListTile(
               leading: ImageIcon(
                 AssetImage('assets/icons/circlemusic.png'),
-                color: Palette1.primary,
+                color: Colors.grey,
               ),
               title: Text(
                 "Hidden Songs",
@@ -86,10 +85,13 @@ class NavegationDrawer extends StatelessWidget {
               ),
               onTap: () {},
             ),
+            Divider(
+              color: Colors.white.withOpacity(0.2),
+            ),
             ListTile(
               leading: ImageIcon(
                 AssetImage('assets/icons/circlemusic.png'),
-                color: Color(0xffc165dd),
+                color: Colors.grey,
               ),
               title: Text(
                 "Hidden Songs",
@@ -97,10 +99,13 @@ class NavegationDrawer extends StatelessWidget {
               ),
               onTap: () {},
             ),
+            Divider(
+              color: Colors.white.withOpacity(0.2),
+            ),
             ListTile(
               leading: ImageIcon(
                 AssetImage('assets/icons/circlemusic.png'),
-                color: Color(0xff5c27fe),
+                color: Colors.grey,
               ),
               title: Text(
                 "Hidden Songs",
@@ -108,17 +113,20 @@ class NavegationDrawer extends StatelessWidget {
               ),
               onTap: () {},
             ),
+            Divider(
+              color: Colors.white.withOpacity(0.2),
+            ),
             ListTile(
               leading: ImageIcon(
                 AssetImage('assets/icons/circlemusic.png'),
-                color: Colors.white,
+                color: Colors.grey,
               ),
               title: Text(
                 "Hidden Songs",
                 style: TextStyle(color: Colors.white),
               ),
               onTap: () {},
-            )
+            ),
           ],
         ),
       );
