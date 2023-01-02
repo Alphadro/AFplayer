@@ -124,20 +124,19 @@ class _edittag extends State<edittag> {
               SizedBox(
                 height: 50,
               ),
-              OutlinedButton(
-                  style: OutlinedButton.styleFrom(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 15, horizontal: 100),
-                      minimumSize: Size(80, 40),
-                      textStyle: TextStyle(fontSize: 20),
-                      side: BorderSide(
-                        width: 4,
-                        color: Colors.white.withOpacity(.09),
-                      )),
-                  onPressed: () {},
+              ElevatedButton(
+                  onPressed: (() {
+                    setState(() {});
+                  }),
                   child: Text(
-                    'Confirm',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
+                    "Confirm",
+                    style: TextStyle(color: Colors.white, fontSize: 30),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14)),
+                    backgroundColor: Palette1.primary,
+                    elevation: 10,
                   ))
             ],
           )),
