@@ -94,16 +94,6 @@ class _AudioPlayerscreenState extends State<AudioPlayerscreenState> {
             height: 20,
           ),
           Controls(audioPlayer: _audioPlayer),
-          Row(
-            children: [
-              IconButton(
-                  onPressed: audioPlayer.seekToPrevious,
-                  icon: Icon(Icons.skip_previous_rounded)),
-              IconButton(
-                  onPressed: audioPlayer.seekToNext,
-                  icon: Icon(Icons.skip_next_rounded))
-            ],
-          ),
         ],
       ),
     );

@@ -259,10 +259,10 @@ class _pageState extends State<Page2> {
                                 );
                               }))),
                     ),
+                    playing()
                   ],
                 ),
               ),
-              Positioned(bottom: 8, child: playing())
             ]),
           );
         });
