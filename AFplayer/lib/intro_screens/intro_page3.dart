@@ -1,6 +1,4 @@
-
 import 'package:flutter/material.dart';
-
 import '../home_page.dart';
 
 class IntroPage3 extends StatefulWidget {
@@ -63,6 +61,5 @@ class _OBScreenState3 extends State<IntroPage3> {
     );
   }
 }
-class Homepage{
-  
-}
+
+class Homepage {}

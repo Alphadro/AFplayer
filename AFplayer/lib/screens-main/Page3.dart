@@ -1,21 +1,75 @@
+import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widgets/edittag.dart';
 import 'package:flutter_application_1/widgets/colors.dart';
-
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_application_1/screens-main/Page2.dart';
+import 'package:just_audio/just_audio.dart';
+import 'package:rxdart/rxdart.dart';
+
+import '../Controller.dart';
 
 class Page3 extends StatefulWidget {
   const Page3({Key? key}) : super(key: key);
 
   @override
-  _pageState createState() => _pageState();
+  _AudioPlayerscreenState createState() => _AudioPlayerscreenState();
 }
 
-class _pageState extends State<Page3> {
+class PositionData {
+  const PositionData(
+    this.position,
+    this.bufferedPosition,
+    this.duration,
+  );
+  final Duration position;
+  final Duration bufferedPosition;
+  final Duration duration;
+}
+
+class _AudioPlayerscreenState extends State<Page3> {
+  late AudioPlayer _audioPlayer;
+
+  final _playlist = ConcatenatingAudioSource(
+    children: [
+      AudioSource.asset("assets/audio/dd.mp3"),
+      AudioSource.asset("assets/audio/ss.mp3"),
+      AudioSource.asset("assets/audio/tutsak.mp3"),
+    ],
+  );
+
+  Stream<PositionData> get _PositionDataStream =>
+      Rx.combineLatest3<Duration, Duration, Duration?, PositionData>(
+        _audioPlayer.positionStream,
+        _audioPlayer.bufferedPositionStream,
+        _audioPlayer.durationStream,
+        (position, bufferedPosition, duration) => PositionData(
+          position,
+          bufferedPosition,
+          duration ?? Duration.zero,
+        ),
+      );
+
+  @override
+  void initState() {
+    super.initState();
+    _audioPlayer = AudioPlayer();
+    _init();
+  }
+
+  Future<void> _init() async {
+    await _audioPlayer.setLoopMode(LoopMode.all);
+    await _audioPlayer.setAudioSource(_playlist);
+  }
+
+  @override
+  void dispose() {
+    _audioPlayer.dispose();
+    super.dispose();
+  }
+
   bool f1 = true;
   double _currentvalue = 0;
-  @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
         designSize: const Size(360, 690),
@@ -187,74 +241,33 @@ class _pageState extends State<Page3> {
                     ),
                     Column(
                       children: [
-                        Stack(
-                          children: [
-                            SliderTheme(
-                              data: const SliderThemeData(
-                                  trackHeight: 2,
-                                  thumbColor: Color(0xff36383e),
-                                  overlayColor: Color(0xff36383e),
-                                  thumbShape: RoundSliderThumbShape(
-                                      enabledThumbRadius: 6)),
-                              child: Container(
-                                height: 20.h,
-                                width: 350.w,
-                                child: Slider(
-                                  activeColor: Palette1.primary,
-                                  thumbColor: Palette1.primary,
-                                  inactiveColor: Color(0xff36383e),
-                                  value: _currentvalue,
-                                  min: 0,
-                                  max: 10,
-                                  onChanged: (value) {
-                                    setState(() {
-                                      _currentvalue = value;
-                                    });
-                                  },
+                        StreamBuilder<PositionData>(
+                          stream: _PositionDataStream,
+                          builder: (context, snapshot) {
+                            final PositionData = snapshot.data;
+                            return SizedBox(
+                              width: 360,
+                              child: ProgressBar(
+                                barHeight: 3,
+                                baseBarColor: Color(0xff36383e),
+                                bufferedBarColor: Color(0xff36383e),
+                                progressBarColor: Palette1.primary,
+                                thumbColor: Palette1.primary,
+                                timeLabelTextStyle: TextStyle(
+                                  fontFamily: "IranwebSanse",
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xff909297),
                                 ),
+                                progress:
+                                    PositionData?.position ?? Duration.zero,
+                                buffered: PositionData?.bufferedPosition ??
+                                    Duration.zero,
+                                total: PositionData?.duration ?? Duration.zero,
+                                onSeek: _audioPlayer.seek,
+                                thumbRadius: 6,
                               ),
-                            ),
-                            Row(
-                              children: [
-                                Expanded(
-                                  //width: MediaQuery.of(context).size.width,
-                                  child: Container(
-                                    alignment: Alignment.centerLeft,
-                                    child: Padding(
-                                      padding: const EdgeInsets.fromLTRB(
-                                          25, 30, 0, 0),
-                                      child: Text(
-                                        "2:23",
-                                        style: TextStyle(
-                                          fontFamily: "IranwebSanse",
-                                          fontWeight: FontWeight.w600,
-                                          color: Color(0xff3c4550),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  //width: MediaQuery.of(context).size.width,
-                                  child: Container(
-                                    alignment: Alignment.centerRight,
-                                    child: Padding(
-                                      padding: const EdgeInsets.fromLTRB(
-                                          0, 30, 25, 0),
-                                      child: Text(
-                                        "3:15",
-                                        style: TextStyle(
-                                          fontFamily: "IranwebSanse",
-                                          fontWeight: FontWeight.w600,
-                                          color: Color(0xff909297),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            )
-                          ],
+                            );
+                          },
                         ),
                         Row(
                           children: [
@@ -273,7 +286,7 @@ class _pageState extends State<Page3> {
                             ),
                             Expanded(
                               child: IconButton(
-                                onPressed: () => {},
+                                onPressed: _audioPlayer.seekToPrevious,
                                 icon: ImageIcon(
                                   AssetImage(
                                     "assets/icons/back.png",
@@ -305,19 +318,13 @@ class _pageState extends State<Page3> {
                                     radius: 29,
                                     backgroundColor: Palette1.primary,
                                   ),
-                                  ImageIcon(
-                                    AssetImage(
-                                      "assets/icons/play_btn.png",
-                                    ),
-                                    color: Color(0xffffffff),
-                                    size: 50,
-                                  ),
+                                  Controls(audioPlayer: _audioPlayer),
                                 ],
                               ),
                             ),
                             Expanded(
                               child: IconButton(
-                                onPressed: () => {},
+                                onPressed: _audioPlayer.seekToNext,
                                 icon: ImageIcon(
                                   AssetImage(
                                     "assets/icons/next.png",

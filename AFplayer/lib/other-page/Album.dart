@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens-main/Page3.dart';
 import 'package:flutter_application_1/widgets/colors.dart';
-
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PageAlbum extends StatefulWidget {

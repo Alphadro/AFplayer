@@ -1,11 +1,8 @@
 import 'package:flutter_application_1/widgets/colors.dart';
-
 import 'screens-main/Page2.dart';
 import 'screens-main/page1.dart';
 import 'package:flutter/material.dart';
-
 import 'package:google_nav_bar/google_nav_bar.dart';
-
 import 'screens-main/Page3.dart';
 import 'screens-main/Page4.dart';
 

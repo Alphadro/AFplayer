@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/other-page/Album.dart';
 import 'package:flutter_application_1/widgets/colors.dart';
 import 'package:flutter_application_1/widgets/playing.dart';
-
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../other-page/Search.dart';
 import 'Page3.dart';
-
 import '../other-page/Setting.dart';
 
 var scaffoldkey = GlobalKey<ScaffoldState>();
@@ -325,7 +321,7 @@ class _pageState extends State<Page1> {
                     Padding(
                       padding: const EdgeInsets.only(top: 8),
                       child: Container(
-                          height: 455.h,
+                          height: 485.h,
                           child: GridView.count(
                               crossAxisCount: 3,
                               mainAxisSpacing: 5,

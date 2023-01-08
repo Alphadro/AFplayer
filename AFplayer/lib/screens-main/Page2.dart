@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/other-page/Album.dart';
 import 'package:flutter_application_1/other-page/Search.dart';
-
 import 'package:flutter_application_1/other-page/Setting.dart';
 import 'package:flutter_application_1/widgets/colors.dart';
 import 'package:flutter_application_1/widgets/playing.dart';
-
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 var scaffoldkey = GlobalKey<ScaffoldState>();
@@ -98,172 +96,168 @@ class _pageState extends State<Page2> {
                         ),
                       )),
                 ]),
-            body: Stack(children: [
-              SingleChildScrollView(
-                child: Column(
-                  children: [
-                    if (isVisible)
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(8, 10, 8, 0),
-                        child: SizedBox(
-                            height: 40.h, width: 350.w, child: Search()),
-                      ),
+            body: SingleChildScrollView(
+              child: Column(
+                children: [
+                  if (isVisible)
                     Padding(
-                      padding: const EdgeInsets.only(top: 8),
-                      child: Container(
-                          height: 455.h,
-                          child: GridView.count(
-                              crossAxisCount: 3,
-                              mainAxisSpacing: 5,
-                              childAspectRatio: 2 / 2.5,
-                              crossAxisSpacing: 7,
-                              children:
-                                  List<Widget>.generate(Music.length, ($index) {
-                                return Card(
-                                  elevation: 0,
-                                  clipBehavior: Clip.hardEdge,
-                                  color: Palette.primary,
-                                  child: Column(
-                                    children: [
-                                      Stack(children: [
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                      builder: (_) =>
-                                                          PageAlbum()));
-                                            },
-                                            child: Image(
-                                              height: 95.h,
-                                              image: AssetImage(
-                                                  'assets/images/cover_img.png'),
-                                            ),
+                      padding: const EdgeInsets.fromLTRB(8, 10, 8, 0),
+                      child:
+                          SizedBox(height: 40.h, width: 350.w, child: Search()),
+                    ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8),
+                    child: Container(
+                        height: 485.h,
+                        child: GridView.count(
+                            crossAxisCount: 3,
+                            mainAxisSpacing: 5,
+                            childAspectRatio: 2 / 2.5,
+                            crossAxisSpacing: 7,
+                            children:
+                                List<Widget>.generate(Music.length, ($index) {
+                              return Card(
+                                elevation: 0,
+                                clipBehavior: Clip.hardEdge,
+                                color: Palette.primary,
+                                child: Column(
+                                  children: [
+                                    Stack(children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(10),
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (_) =>
+                                                        PageAlbum()));
+                                          },
+                                          child: Image(
+                                            height: 95.h,
+                                            image: AssetImage(
+                                                'assets/images/cover_img.png'),
                                           ),
                                         ),
-                                        Positioned(
-                                          top: 4,
-                                          left: 7,
-                                          child: ImageIcon(
+                                      ),
+                                      Positioned(
+                                        top: 4,
+                                        left: 7,
+                                        child: ImageIcon(
+                                            AssetImage(
+                                                "assets/icons/folder.png"),
+                                            size: 15,
+                                            color: Colors.white),
+                                      ),
+                                      Positioned(
+                                        top: 2,
+                                        right: 3,
+                                        child: PopupMenuButton(
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(14)),
+                                            color:
+                                                Palette.primary.withOpacity(.9),
+                                            child: ImageIcon(
                                               AssetImage(
-                                                  "assets/icons/folder.png"),
-                                              size: 15,
-                                              color: Colors.white),
-                                        ),
-                                        Positioned(
-                                          top: 2,
-                                          right: 3,
-                                          child: PopupMenuButton(
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          14)),
-                                              color: Palette.primary
-                                                  .withOpacity(.9),
-                                              child: ImageIcon(
-                                                AssetImage(
-                                                    'assets/icons/menu.png'),
-                                                color: Colors.white,
-                                                size: 25,
-                                              ),
-                                              itemBuilder:
-                                                  (BuildContext context) {
-                                                return [
-                                                  PopupMenuItem(
-                                                    padding: EdgeInsets.all(10),
-                                                    child: Text(
-                                                      'Delete Music',
-                                                      style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 12,
-                                                        fontFamily:
-                                                            "IranwebSanse",
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                      ),
+                                                  'assets/icons/menu.png'),
+                                              color: Colors.white,
+                                              size: 25,
+                                            ),
+                                            itemBuilder:
+                                                (BuildContext context) {
+                                              return [
+                                                PopupMenuItem(
+                                                  padding: EdgeInsets.all(10),
+                                                  child: Text(
+                                                    'Delete Music',
+                                                    style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 12,
+                                                      fontFamily:
+                                                          "IranwebSanse",
+                                                      fontWeight:
+                                                          FontWeight.w400,
                                                     ),
-                                                    onTap: () {
-                                                      setState(() {
-                                                        print('yes');
-                                                      });
-                                                    },
                                                   ),
-                                                  PopupMenuItem(
-                                                    padding: EdgeInsets.all(10),
-                                                    child: Text(
-                                                      'Add to Play List',
-                                                      style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 12,
-                                                        fontFamily:
-                                                            "IranwebSanse",
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                      ),
+                                                  onTap: () {
+                                                    setState(() {
+                                                      print('yes');
+                                                    });
+                                                  },
+                                                ),
+                                                PopupMenuItem(
+                                                  padding: EdgeInsets.all(10),
+                                                  child: Text(
+                                                    'Add to Play List',
+                                                    style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 12,
+                                                      fontFamily:
+                                                          "IranwebSanse",
+                                                      fontWeight:
+                                                          FontWeight.w400,
                                                     ),
-                                                    onTap: () {
-                                                      setState(() {
-                                                        print('yes');
-                                                      });
-                                                    },
                                                   ),
-                                                  PopupMenuItem(
-                                                    padding: EdgeInsets.all(10),
-                                                    child: Text(
-                                                      'Share Music',
-                                                      style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 12,
-                                                        fontFamily:
-                                                            "IranwebSanse",
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                      ),
+                                                  onTap: () {
+                                                    setState(() {
+                                                      print('yes');
+                                                    });
+                                                  },
+                                                ),
+                                                PopupMenuItem(
+                                                  padding: EdgeInsets.all(10),
+                                                  child: Text(
+                                                    'Share Music',
+                                                    style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 12,
+                                                      fontFamily:
+                                                          "IranwebSanse",
+                                                      fontWeight:
+                                                          FontWeight.w400,
                                                     ),
-                                                    onTap: () {
-                                                      setState(() {
-                                                        print('yes');
-                                                      });
-                                                    },
                                                   ),
-                                                ];
-                                              }),
-                                        ),
-                                      ]),
-                                      SizedBox(
-                                        height: 4,
+                                                  onTap: () {
+                                                    setState(() {
+                                                      print('yes');
+                                                    });
+                                                  },
+                                                ),
+                                              ];
+                                            }),
                                       ),
-                                      Text(
-                                        'Like it Doesnt Hurt',
-                                        style: TextStyle(
-                                          fontSize: 11.sp,
-                                          color: Colors.white,
-                                          fontFamily: "IranwebSanse",
-                                          fontWeight: FontWeight.w300,
-                                        ),
+                                    ]),
+                                    SizedBox(
+                                      height: 4,
+                                    ),
+                                    Text(
+                                      'Like it Doesnt Hurt',
+                                      style: TextStyle(
+                                        fontSize: 11.sp,
+                                        color: Colors.white,
+                                        fontFamily: "IranwebSanse",
+                                        fontWeight: FontWeight.w300,
                                       ),
-                                      Text(
-                                        'Danito & Athina',
-                                        style: TextStyle(
-                                          color: Color(0xff3c4550),
-                                          fontSize: 8.sp,
-                                          fontFamily: "IranwebSanse",
-                                          fontWeight: FontWeight.w200,
-                                        ),
+                                    ),
+                                    Text(
+                                      'Danito & Athina',
+                                      style: TextStyle(
+                                        color: Color(0xff3c4550),
+                                        fontSize: 8.sp,
+                                        fontFamily: "IranwebSanse",
+                                        fontWeight: FontWeight.w200,
                                       ),
-                                    ],
-                                  ),
-                                );
-                              }))),
-                    ),
-                    playing()
-                  ],
-                ),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            }))),
+                  ),
+                  playing()
+                ],
               ),
-            ]),
+            ),
           );
         });
   }

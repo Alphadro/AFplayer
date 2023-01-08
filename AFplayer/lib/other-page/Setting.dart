@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/widgets/colors.dart';
 
 class Setting extends StatefulWidget {
   const Setting({Key? key}) : super(key: key);
