@@ -321,7 +321,7 @@ class _pageState extends State<Page1> {
                     Padding(
                       padding: const EdgeInsets.only(top: 8),
                       child: Container(
-                          height: 485.h,
+                          height: 500.h,
                           child: GridView.count(
                               crossAxisCount: 3,
                               mainAxisSpacing: 5,

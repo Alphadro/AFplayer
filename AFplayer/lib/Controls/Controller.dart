@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widgets/colors.dart';
 import 'package:just_audio/just_audio.dart';
 
 class Controls extends StatelessWidget {
@@ -18,17 +19,19 @@ class Controls extends StatelessWidget {
         final playing = playerState?.playing;
         if (!(playing ?? false)) {
           return IconButton(
+            splashRadius: 1,
             onPressed: audioPlayer.play,
             icon: ImageIcon(
               AssetImage(
                 "assets/icons/play_btn.png",
               ),
               color: Color(0xffffffff),
-              size: 50,
+              size: 28,
             ),
           );
         } else if (processingState != ProcessingState.completed) {
           return IconButton(
+            splashRadius: 1,
             onPressed: audioPlayer.pause,
             icon: Icon(Icons.pause_rounded),
             color: Color(0xffffffff),

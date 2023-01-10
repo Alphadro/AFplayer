@@ -100,7 +100,8 @@ class _pageState extends State<PageAlbum> {
                               SizedBox(
                                 width: 200,
                               ),
-                              PopupMenuButton(
+                              PopupMenuButton<int>(
+                                  onSelected: (value) async {},
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(14)),
                                   color: Colors.white.withOpacity(.3),
@@ -109,61 +110,60 @@ class _pageState extends State<PageAlbum> {
                                     color: Color(0xff3c4550),
                                     size: 40,
                                   ),
-                                  itemBuilder: (BuildContext context) {
-                                    return [
-                                      PopupMenuItem(
-                                        padding: EdgeInsets.all(10),
-                                        child: Text(
-                                          'Delet Music',
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 12,
-                                            fontFamily: "IranwebSanse",
-                                            fontWeight: FontWeight.w400,
+                                  itemBuilder: (context) => [
+                                        PopupMenuItem(
+                                          padding: EdgeInsets.all(10),
+                                          child: Text(
+                                            'Delet Music',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 12,
+                                              fontFamily: "IranwebSanse",
+                                              fontWeight: FontWeight.w400,
+                                            ),
                                           ),
+                                          onTap: () {
+                                            setState(() {
+                                              print('yes');
+                                            });
+                                          },
                                         ),
-                                        onTap: () {
-                                          setState(() {
-                                            print('yes');
-                                          });
-                                        },
-                                      ),
-                                      PopupMenuItem(
-                                        padding: EdgeInsets.all(10),
-                                        child: Text(
-                                          'Add to Play List',
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 12,
-                                            fontFamily: "IranwebSanse",
-                                            fontWeight: FontWeight.w400,
+                                        PopupMenuDivider(),
+                                        PopupMenuItem(
+                                          padding: EdgeInsets.all(10),
+                                          child: Text(
+                                            'Add to Play List',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 12,
+                                              fontFamily: "IranwebSanse",
+                                              fontWeight: FontWeight.w400,
+                                            ),
                                           ),
+                                          onTap: () {
+                                            setState(() {
+                                              print('yes');
+                                            });
+                                          },
                                         ),
-                                        onTap: () {
-                                          setState(() {
-                                            print('yes');
-                                          });
-                                        },
-                                      ),
-                                      PopupMenuItem(
-                                        padding: EdgeInsets.all(10),
-                                        child: Text(
-                                          'Share Music',
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 12,
-                                            fontFamily: "IranwebSanse",
-                                            fontWeight: FontWeight.w400,
+                                        PopupMenuItem(
+                                          padding: EdgeInsets.all(10),
+                                          child: Text(
+                                            'Share Music',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 12,
+                                              fontFamily: "IranwebSanse",
+                                              fontWeight: FontWeight.w400,
+                                            ),
                                           ),
+                                          onTap: () {
+                                            setState(() {
+                                              print('yes');
+                                            });
+                                          },
                                         ),
-                                        onTap: () {
-                                          setState(() {
-                                            print('yes');
-                                          });
-                                        },
-                                      ),
-                                    ];
-                                  })
+                                      ])
                             ],
                           ),
                         ),

@@ -7,7 +7,7 @@ import 'package:flutter_application_1/screens-main/Page2.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:rxdart/rxdart.dart';
 
-import '../Controller.dart';
+import '../Controls/Controller.dart';
 
 class Page3 extends StatefulWidget {
   const Page3({Key? key}) : super(key: key);
@@ -69,7 +69,7 @@ class _AudioPlayerscreenState extends State<Page3> {
   }
 
   bool f1 = true;
-  double _currentvalue = 0;
+
   Widget build(BuildContext context) {
     return ScreenUtilInit(
         designSize: const Size(360, 690),

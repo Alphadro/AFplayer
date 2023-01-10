@@ -304,7 +304,7 @@ class _pageState extends State<Page4> {
                       ),
                     ),
                     const Positioned(
-                        bottom: 5, left: 3, right: 3, child: playing())
+                        bottom: 2, left: 0, right: 0, child: playing())
                   ]),
                 ),
               ],
