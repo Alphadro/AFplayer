@@ -138,7 +138,7 @@ class _pageState extends State<Page2> {
                                         right: 3,
                                         child: Theme(
                                           data: Theme.of(context).copyWith(
-                                              dividerColor: Colors.amber),
+                                              dividerColor: Colors.white54),
                                           child: PopupMenuButton<int>(
                                               onSelected: (value) async {},
                                               shape: RoundedRectangleBorder(
@@ -195,6 +195,7 @@ class _pageState extends State<Page2> {
                                                         });
                                                       },
                                                     ),
+                                                    PopupMenuDivider(),
                                                     PopupMenuItem(
                                                       padding:
                                                           EdgeInsets.all(10),
@@ -220,7 +221,7 @@ class _pageState extends State<Page2> {
                                       ),
                                     ]),
                                     SizedBox(
-                                      height: 4,
+                                      height: 4.h,
                                     ),
                                     Text(
                                       'Like it Doesnt Hurt',

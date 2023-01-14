@@ -1,5 +1,6 @@
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens-main/Page3.dart';
 import 'package:flutter_application_1/widgets/colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:just_audio/just_audio.dart';
@@ -72,99 +73,105 @@ class _AudioPlayerscreenState extends State<playing> {
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) {
-          return Container(
-              height: 57.h,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Color(0xff262932),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.only(top: 3, right: 5, left: 5),
-                child: Column(children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                          height: 35.h,
-                          width: 35.w,
-                          child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child:
-                                  Image.asset('assets/images/cover_img.png'))),
-                      SizedBox(
-                        width: 8.w,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Like it Doesnt Hurt',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 10.sp,
-                              fontFamily: "IranwebSanse",
-                              fontWeight: FontWeight.w300,
-                            ),
-                          ),
-                          Text(
-                            'Danito & Athina',
-                            style: TextStyle(
-                              color: Color(0xff3c4550),
-                              fontSize: 8.sp,
-                              fontFamily: "IranwebSanse",
-                              fontWeight: FontWeight.w200,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        width: 110.w,
-                      ),
-                      Controls(audioPlayer: _audioPlayer),
-                      IconButton(
-                        onPressed: _audioPlayer.seekToNext,
-                        icon: ImageIcon(
-                          AssetImage(
-                            "assets/icons/forw.png",
-                          ),
-                          color: Color(0xff3c4550),
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: ((context) => Page3())));
+            },
+            child: Container(
+                height: 57.h,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Color(0xff262932),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 3, right: 5, left: 5),
+                  child: Column(children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                            height: 35.h,
+                            width: 35.w,
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Image.asset(
+                                    'assets/images/cover_img.png'))),
+                        SizedBox(
+                          width: 8.w,
                         ),
-                        splashRadius: 1,
-                      ),
-                    ],
-                  ),
-                  StreamBuilder<PositionData>(
-                    stream: _PositionDataStream,
-                    builder: (context, snapshot) {
-                      final PositionData = snapshot.data;
-                      return SizedBox(
-                        width: 330,
-                        child: ProgressBar(
-                          barHeight: 2,
-                          baseBarColor: Color(0xff36383e),
-                          bufferedBarColor: Color(0xff36383e),
-                          progressBarColor: Palette1.primary,
-                          thumbColor: Palette1.primary,
-                          timeLabelTextStyle: TextStyle(
-                            fontFamily: "IranwebSanse",
-                            fontWeight: FontWeight.w600,
-                            fontSize: 10,
-                            color: Color(0xff909297),
-                          ),
-                          progress: PositionData?.position ?? Duration.zero,
-                          buffered:
-                              PositionData?.bufferedPosition ?? Duration.zero,
-                          total: PositionData?.duration ?? Duration.zero,
-                          onSeek: _audioPlayer.seek,
-                          thumbRadius: 4,
-                          timeLabelLocation: TimeLabelLocation.sides,
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Like it Doesnt Hurt',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 10.sp,
+                                fontFamily: "IranwebSanse",
+                                fontWeight: FontWeight.w300,
+                              ),
+                            ),
+                            Text(
+                              'Danito & Athina',
+                              style: TextStyle(
+                                color: Color(0xff3c4550),
+                                fontSize: 8.sp,
+                                fontFamily: "IranwebSanse",
+                                fontWeight: FontWeight.w200,
+                              ),
+                            ),
+                          ],
                         ),
-                      );
-                    },
-                  ),
-                ]),
-              ));
+                        SizedBox(
+                          width: 110.w,
+                        ),
+                        Controls(audioPlayer: _audioPlayer),
+                        IconButton(
+                          onPressed: _audioPlayer.seekToNext,
+                          icon: ImageIcon(
+                            AssetImage(
+                              "assets/icons/forw.png",
+                            ),
+                            color: Color(0xff3c4550),
+                          ),
+                          splashRadius: 1,
+                        ),
+                      ],
+                    ),
+                    StreamBuilder<PositionData>(
+                      stream: _PositionDataStream,
+                      builder: (context, snapshot) {
+                        final PositionData = snapshot.data;
+                        return SizedBox(
+                          width: 330,
+                          child: ProgressBar(
+                            barHeight: 2,
+                            baseBarColor: Color(0xff36383e),
+                            bufferedBarColor: Color(0xff36383e),
+                            progressBarColor: Palette1.primary,
+                            thumbColor: Palette1.primary,
+                            timeLabelTextStyle: TextStyle(
+                              fontFamily: "IranwebSanse",
+                              fontWeight: FontWeight.w600,
+                              fontSize: 10,
+                              color: Color(0xff909297),
+                            ),
+                            progress: PositionData?.position ?? Duration.zero,
+                            buffered:
+                                PositionData?.bufferedPosition ?? Duration.zero,
+                            total: PositionData?.duration ?? Duration.zero,
+                            onSeek: _audioPlayer.seek,
+                            thumbRadius: 4,
+                            timeLabelLocation: TimeLabelLocation.sides,
+                          ),
+                        );
+                      },
+                    ),
+                  ]),
+                )),
+          );
         });
   }
 }

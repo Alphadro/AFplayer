@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
+import 'nowplaying.dart';
+
 class playlist extends StatefulWidget {
   @override
   State<playlist> createState() => _playlist();
@@ -50,7 +52,13 @@ class _playlist extends State<playlist> {
                   child: Icon(Icons.music_note),
                 ),
                 onTap: () {
-                  playSong(item.data![index].uri);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => NowPlaying(
+                          songModel: item.data![index],
+                        ),
+                      ));
                 },
               );
             }),

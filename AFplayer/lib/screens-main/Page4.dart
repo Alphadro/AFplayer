@@ -7,6 +7,7 @@ import 'package:flutter_application_1/Theme/theme5.dart';
 import 'package:flutter_application_1/Theme/theme6.dart';
 import 'package:flutter_application_1/widgets/colors.dart';
 import 'package:flutter_application_1/widgets/playing.dart';
+import 'package:flutter_application_1/widgets/playlist.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../other-page/Search.dart';
 import '../other-page/Setting.dart';
@@ -230,7 +231,7 @@ class _pageState extends State<Page4> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: ((context) => theme4())));
+                                          builder: ((context) => playlist())));
                                 },
                               ),
                             ),

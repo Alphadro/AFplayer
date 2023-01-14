@@ -60,228 +60,244 @@ class _pageState extends State<Page1> {
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  PopupMenuButton(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(14)),
-                      color: Palette.primary.withOpacity(.9),
-                      child: Text(
-                        'Filter',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontFamily: "IranwebSanse",
-                          fontWeight: FontWeight.w400,
+                  Theme(
+                    data: Theme.of(context)
+                        .copyWith(dividerColor: Colors.white54),                                                             
+                    child: PopupMenuButton<int>(
+                        onSelected: (value) async {},
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(14)),
+                        color: Palette.primary.withOpacity(.9),
+                        child: Text(
+                          'Filter',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontFamily: "IranwebSanse",
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
-                      ),
-                      itemBuilder: (BuildContext context) {
-                        return [
-                          PopupMenuItem(
-                            padding: EdgeInsets.all(10),
-                            child: Text(
-                              'By Adding Time',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                                fontFamily: "IranwebSanse",
-                                fontWeight: FontWeight.w400,
+                        itemBuilder: (context) => [
+                              PopupMenuItem(
+                                padding: EdgeInsets.all(10),
+                                child: Text(
+                                  'By Adding Time',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                    fontFamily: "IranwebSanse",
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                onTap: () {
+                                  setState(() {
+                                    print('yes');
+                                  });
+                                },
                               ),
-                            ),
-                            onTap: () {
-                              setState(() {
-                                print('yes');
-                              });
-                            },
-                          ),
-                          PopupMenuItem(
-                            padding: EdgeInsets.all(10),
-                            child: Text(
-                              'By Name',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                                fontFamily: "IranwebSanse",
-                                fontWeight: FontWeight.w400,
+                              PopupMenuDivider(),
+                              PopupMenuItem(
+                                padding: EdgeInsets.all(10),
+                                child: Text(
+                                  'By Name',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                    fontFamily: "IranwebSanse",
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                onTap: () {
+                                  setState(() {
+                                    print('yes');
+                                  });
+                                },
                               ),
-                            ),
-                            onTap: () {
-                              setState(() {
-                                print('yes');
-                              });
-                            },
-                          ),
-                          PopupMenuItem(
-                            padding: EdgeInsets.all(10),
-                            child: Text(
-                              'By A-Z',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                                fontFamily: "IranwebSanse",
-                                fontWeight: FontWeight.w400,
+                              PopupMenuDivider(),
+                              PopupMenuItem(
+                                padding: EdgeInsets.all(10),
+                                child: Text(
+                                  'By A-Z',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                    fontFamily: "IranwebSanse",
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                onTap: () {
+                                  setState(() {
+                                    print('yes');
+                                  });
+                                },
                               ),
-                            ),
-                            onTap: () {
-                              setState(() {
-                                print('yes');
-                              });
-                            },
-                          ),
-                        ];
-                      }),
+                            ]),
+                  ),
                   SizedBox(
                     width: 18,
                   ),
-                  PopupMenuButton(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(14)),
-                      color: Palette.primary.withOpacity(.9),
-                      child: Text(
-                        'Arrange',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontFamily: "IranwebSanse",
-                          fontWeight: FontWeight.w400,
+                  Theme(
+                    data: Theme.of(context)
+                        .copyWith(dividerColor: Colors.white54),
+                    child: PopupMenuButton<int>(
+                        onSelected: (value) async {},
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(14)),
+                        color: Palette.primary.withOpacity(.9),
+                        child: Text(
+                          'Arrange',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontFamily: "IranwebSanse",
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
-                      ),
-                      itemBuilder: (BuildContext context) {
-                        return [
-                          PopupMenuItem(
-                            padding: EdgeInsets.all(10),
-                            child: Text(
-                              'By Song',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                                fontFamily: "IranwebSanse",
-                                fontWeight: FontWeight.w400,
+                        itemBuilder: (context) => [
+                              PopupMenuItem(
+                                padding: EdgeInsets.all(10),
+                                child: Text(
+                                  'By Song',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                    fontFamily: "IranwebSanse",
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                onTap: () {
+                                  setState(() {
+                                    print('yes');
+                                  });
+                                },
                               ),
-                            ),
-                            onTap: () {
-                              setState(() {
-                                print('yes');
-                              });
-                            },
-                          ),
-                          PopupMenuItem(
-                            padding: EdgeInsets.all(10),
-                            child: Text(
-                              'By Artist',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                                fontFamily: "IranwebSanse",
-                                fontWeight: FontWeight.w400,
+                              PopupMenuDivider(),
+                              PopupMenuItem(
+                                padding: EdgeInsets.all(10),
+                                child: Text(
+                                  'By Artist',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                    fontFamily: "IranwebSanse",
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                onTap: () {
+                                  setState(() {
+                                    print('yes');
+                                  });
+                                },
                               ),
-                            ),
-                            onTap: () {
-                              setState(() {
-                                print('yes');
-                              });
-                            },
-                          ),
-                          PopupMenuItem(
-                            padding: EdgeInsets.all(10),
-                            child: Text(
-                              'By Album',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                                fontFamily: "IranwebSanse",
-                                fontWeight: FontWeight.w400,
+                              PopupMenuDivider(),
+                              PopupMenuItem(
+                                padding: EdgeInsets.all(10),
+                                child: Text(
+                                  'By Album',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                    fontFamily: "IranwebSanse",
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                onTap: () {
+                                  setState(() {});
+                                },
                               ),
-                            ),
-                            onTap: () {
-                              setState(() {});
-                            },
-                          ),
-                          PopupMenuItem(
-                            padding: EdgeInsets.all(10),
-                            child: Text(
-                              'By Folder',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                                fontFamily: "IranwebSanse",
-                                fontWeight: FontWeight.w400,
+                              PopupMenuDivider(),
+                              PopupMenuItem(
+                                padding: EdgeInsets.all(10),
+                                child: Text(
+                                  'By Folder',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                    fontFamily: "IranwebSanse",
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                onTap: () {
+                                  setState(() {
+                                    print('yes');
+                                  });
+                                },
                               ),
-                            ),
-                            onTap: () {
-                              setState(() {
-                                print('yes');
-                              });
-                            },
-                          ),
-                        ];
-                      }),
+                            ]),
+                  ),
                   SizedBox(
                     width: 18,
                   ),
-                  PopupMenuButton(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(14)),
-                      color: Palette.primary.withOpacity(.9),
-                      child: Text(
-                        'View',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontFamily: "IranwebSanse",
-                          fontWeight: FontWeight.w400,
+                  Theme(
+                    data: Theme.of(context)
+                        .copyWith(dividerColor: Colors.white54),
+                    child: PopupMenuButton<int>(
+                        onSelected: (value) async {},
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(14)),
+                        color: Palette.primary.withOpacity(.9),
+                        child: Text(
+                          'View',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontFamily: "IranwebSanse",
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
-                      ),
-                      itemBuilder: (BuildContext context) {
-                        return [
-                          PopupMenuItem(
-                            padding: EdgeInsets.all(10),
-                            child: Text(
-                              'Medume Card',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                                fontFamily: "IranwebSanse",
-                                fontWeight: FontWeight.w400,
+                        itemBuilder: (context) => [
+                              PopupMenuItem(
+                                padding: EdgeInsets.all(10),
+                                child: Text(
+                                  'Medume Card',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                    fontFamily: "IranwebSanse",
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                onTap: () {
+                                  setState(() {
+                                    print('yes');
+                                  });
+                                },
                               ),
-                            ),
-                            onTap: () {
-                              setState(() {
-                                print('yes');
-                              });
-                            },
-                          ),
-                          PopupMenuItem(
-                            padding: EdgeInsets.all(10),
-                            child: Text(
-                              'Big Card',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                                fontFamily: "IranwebSanse",
-                                fontWeight: FontWeight.w400,
+                              PopupMenuDivider(),
+                              PopupMenuItem(
+                                padding: EdgeInsets.all(10),
+                                child: Text(
+                                  'Big Card',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                    fontFamily: "IranwebSanse",
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                onTap: () {
+                                  setState(() {
+                                    print('yes');
+                                  });
+                                },
                               ),
-                            ),
-                            onTap: () {
-                              setState(() {
-                                print('yes');
-                              });
-                            },
-                          ),
-                          PopupMenuItem(
-                            padding: EdgeInsets.all(10),
-                            child: Text(
-                              'List',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                                fontFamily: "IranwebSanse",
-                                fontWeight: FontWeight.w400,
+                              PopupMenuDivider(),
+                              PopupMenuItem(
+                                padding: EdgeInsets.all(10),
+                                child: Text(
+                                  'List',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                    fontFamily: "IranwebSanse",
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                onTap: () {
+                                  setState(() {
+                                    print('yes');
+                                  });
+                                },
                               ),
-                            ),
-                            onTap: () {
-                              setState(() {
-                                print('yes');
-                              });
-                            },
-                          ),
-                        ];
-                      }),
+                            ]),
+                  ),
                 ],
               ),
               backgroundColor: Palette.primary,
@@ -365,81 +381,88 @@ class _pageState extends State<Page1> {
                                         Positioned(
                                           top: 2,
                                           right: 3,
-                                          child: PopupMenuButton(
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          14)),
-                                              color: Palette.primary
-                                                  .withOpacity(.9),
-                                              child: ImageIcon(
-                                                AssetImage(
-                                                    'assets/icons/menu.png'),
-                                                color: Colors.white,
-                                                size: 25,
-                                              ),
-                                              itemBuilder:
-                                                  (BuildContext context) {
-                                                return [
-                                                  PopupMenuItem(
-                                                    padding: EdgeInsets.all(10),
-                                                    child: Text(
-                                                      'Delete Music',
-                                                      style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 12,
-                                                        fontFamily:
-                                                            "IranwebSanse",
-                                                        fontWeight:
-                                                            FontWeight.w400,
+                                          child: Theme(
+                                            data: Theme.of(context).copyWith(
+                                                dividerColor: Colors.white54),
+                                            child: PopupMenuButton<int>(
+                                                onSelected: (value) async {},
+                                                shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            14)),
+                                                color: Palette.primary
+                                                    .withOpacity(.9),
+                                                child: ImageIcon(
+                                                  AssetImage(
+                                                      'assets/icons/menu.png'),
+                                                  color: Colors.white,
+                                                  size: 25,
+                                                ),
+                                                itemBuilder: (context) => [
+                                                      PopupMenuItem(
+                                                        padding:
+                                                            EdgeInsets.all(10),
+                                                        child: Text(
+                                                          'Delete Music',
+                                                          style: TextStyle(
+                                                            color: Colors.white,
+                                                            fontSize: 12,
+                                                            fontFamily:
+                                                                "IranwebSanse",
+                                                            fontWeight:
+                                                                FontWeight.w400,
+                                                          ),
+                                                        ),
+                                                        onTap: () {
+                                                          setState(() {
+                                                            print('yes');
+                                                          });
+                                                        },
                                                       ),
-                                                    ),
-                                                    onTap: () {
-                                                      setState(() {
-                                                        print('yes');
-                                                      });
-                                                    },
-                                                  ),
-                                                  PopupMenuItem(
-                                                    padding: EdgeInsets.all(10),
-                                                    child: Text(
-                                                      'Add to Play List',
-                                                      style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 12,
-                                                        fontFamily:
-                                                            "IranwebSanse",
-                                                        fontWeight:
-                                                            FontWeight.w400,
+                                                      PopupMenuDivider(),
+                                                      PopupMenuItem(
+                                                        padding:
+                                                            EdgeInsets.all(10),
+                                                        child: Text(
+                                                          'Add to Play List',
+                                                          style: TextStyle(
+                                                            color: Colors.white,
+                                                            fontSize: 12,
+                                                            fontFamily:
+                                                                "IranwebSanse",
+                                                            fontWeight:
+                                                                FontWeight.w400,
+                                                          ),
+                                                        ),
+                                                        onTap: () {
+                                                          setState(() {
+                                                            print('yes');
+                                                          });
+                                                        },
                                                       ),
-                                                    ),
-                                                    onTap: () {
-                                                      setState(() {
-                                                        print('yes');
-                                                      });
-                                                    },
-                                                  ),
-                                                  PopupMenuItem(
-                                                    padding: EdgeInsets.all(10),
-                                                    child: Text(
-                                                      'Share Music',
-                                                      style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 12,
-                                                        fontFamily:
-                                                            "IranwebSanse",
-                                                        fontWeight:
-                                                            FontWeight.w400,
+                                                      PopupMenuDivider(),
+                                                      PopupMenuItem(
+                                                        padding:
+                                                            EdgeInsets.all(10),
+                                                        child: Text(
+                                                          'Share Music',
+                                                          style: TextStyle(
+                                                            color: Colors.white,
+                                                            fontSize: 12,
+                                                            fontFamily:
+                                                                "IranwebSanse",
+                                                            fontWeight:
+                                                                FontWeight.w400,
+                                                          ),
+                                                        ),
+                                                        onTap: () {
+                                                          setState(() {
+                                                            print('yes');
+                                                          });
+                                                        },
                                                       ),
-                                                    ),
-                                                    onTap: () {
-                                                      setState(() {
-                                                        print('yes');
-                                                      });
-                                                    },
-                                                  ),
-                                                ];
-                                              }),
+                                                    ]),
+                                          ),
                                         ),
                                       ]),
                                       SizedBox(

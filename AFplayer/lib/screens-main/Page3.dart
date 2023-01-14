@@ -35,6 +35,12 @@ class _AudioPlayerscreenState extends State<Page3> {
       AudioSource.asset("assets/audio/dd.mp3"),
       AudioSource.asset("assets/audio/ss.mp3"),
       AudioSource.asset("assets/audio/tutsak.mp3"),
+      AudioSource.asset("assets/audio/a.mp3"),
+      AudioSource.asset("assets/audio/b.mp3"),
+      AudioSource.asset("assets/audio/c.mp3"),
+      AudioSource.asset("assets/audio/d.mp3"),
+      AudioSource.asset("assets/audio/e.mp3"),
+      AudioSource.asset("assets/audio/f.mp3"),
     ],
   );
 
@@ -274,7 +280,10 @@ class _AudioPlayerscreenState extends State<Page3> {
                             Expanded(
                               child: SizedBox(
                                 child: IconButton(
-                                  onPressed: () => {},
+                                  onPressed: () => {
+                                    _audioPlayer.setShuffleModeEnabled(true),
+                                    print("object"),
+                                  },
                                   icon: ImageIcon(
                                     AssetImage(
                                       "assets/icons/rep.png",
@@ -335,7 +344,8 @@ class _AudioPlayerscreenState extends State<Page3> {
                             ),
                             Expanded(
                               child: IconButton(
-                                onPressed: () => {},
+                                onPressed: () =>
+                                    {_audioPlayer.setShuffleModeEnabled(true)},
                                 icon: ImageIcon(
                                   AssetImage(
                                     "assets/icons/set.png",
