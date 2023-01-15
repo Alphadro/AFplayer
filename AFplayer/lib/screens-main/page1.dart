@@ -1,7 +1,12 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widgets/colors.dart';
 import 'package:flutter_application_1/widgets/playing.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:just_audio/just_audio.dart';
+import 'package:on_audio_query/on_audio_query.dart';
+import 'package:permission_handler/permission_handler.dart';
 import '../other-page/Search.dart';
 import 'Page3.dart';
 import '../other-page/Setting.dart';
@@ -15,35 +20,32 @@ class Page1 extends StatefulWidget {
 }
 
 class _pageState extends State<Page1> {
+  final OnAudioQuery _audioQuery = OnAudioQuery();
+  final AudioPlayer _audioPlayer = AudioPlayer();
+
+  @override
+  void initState() {
+    super.initState();
+    requestPermission();
+  }
+
+  void requestPermission() {
+    Permission.storage.request();
+  }
+
+  playSong(String? uri) {
+    try {
+      _audioPlayer.setAudioSource(AudioSource.uri(Uri.parse(uri!)));
+      _audioPlayer.play();
+    } on Exception {
+      log('Erorr parsing song');
+    }
+  }
+
   bool t1 = false;
   bool s1 = false;
   bool isVisible = false;
-  List<String> Music = [
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-  ];
+
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -62,7 +64,7 @@ class _pageState extends State<Page1> {
                 children: [
                   Theme(
                     data: Theme.of(context)
-                        .copyWith(dividerColor: Colors.white54),                                                             
+                        .copyWith(dividerColor: Colors.white54),
                     child: PopupMenuButton<int>(
                         onSelected: (value) async {},
                         shape: RoundedRectangleBorder(
@@ -343,8 +345,8 @@ class _pageState extends State<Page1> {
                               mainAxisSpacing: 5,
                               childAspectRatio: 2 / 2.5,
                               crossAxisSpacing: 7,
-                              children:
-                                  List<Widget>.generate(Music.length, ($index) {
+                              children: List<Widget>.generate(item.data!.length,
+                                  ($index) {
                                 return Card(
                                   elevation: 0,
                                   clipBehavior: Clip.hardEdge,
@@ -360,7 +362,11 @@ class _pageState extends State<Page1> {
                                               Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                      builder: (_) => Page3()));
+                                                    builder: (context) => Page3(
+                                                      songModel:
+                                                          item.data![index],
+                                                    ),
+                                                  ));
                                             },
                                             child: Image(
                                               height: 95.h,
@@ -469,7 +475,7 @@ class _pageState extends State<Page1> {
                                         height: 4,
                                       ),
                                       Text(
-                                        'Like it Doesnt Hurt',
+                                        item.data![index].title,
                                         style: TextStyle(
                                           fontSize: 11.sp,
                                           color: Colors.white,
@@ -478,7 +484,7 @@ class _pageState extends State<Page1> {
                                         ),
                                       ),
                                       Text(
-                                        'Danito & Athina',
+                                        item.data![index].artist ?? 'no',
                                         style: TextStyle(
                                           color: Color(0xff3c4550),
                                           fontSize: 8.sp,

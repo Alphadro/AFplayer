@@ -75,7 +75,7 @@ class _AudioPlayerscreenState extends State<Page3> {
   }
 
   bool f1 = true;
-
+  bool shuffel = true;
   Widget build(BuildContext context) {
     return ScreenUtilInit(
         designSize: const Size(360, 690),
@@ -278,20 +278,36 @@ class _AudioPlayerscreenState extends State<Page3> {
                         Row(
                           children: [
                             Expanded(
-                              child: SizedBox(
-                                child: IconButton(
-                                  onPressed: () => {
-                                    _audioPlayer.setShuffleModeEnabled(true),
-                                    print("object"),
-                                  },
-                                  icon: ImageIcon(
-                                    AssetImage(
-                                      "assets/icons/rep.png",
+                              child: shuffel
+                                  ? GestureDetector(
+                                      onTap: () {
+                                        shuffel = false;
+                                        _audioPlayer
+                                            .setShuffleModeEnabled(true);
+                                        setState(() {});
+                                      },
+                                      child: ImageIcon(
+                                        AssetImage(
+                                          "assets/icons/rep.png",
+                                        ),
+                                        color: Palette1.primary,
+                                      )
+
+                                      // Colors
+                                      )
+                                  : GestureDetector(
+                                      onTap: () {
+                                        shuffel = true;
+
+                                        setState(() {});
+                                      },
+                                      child: ImageIcon(
+                                        AssetImage(
+                                          "assets/icons/set.png",
+                                        ),
+                                        color: Palette1.primary,
+                                      ),
                                     ),
-                                    color: Palette1.primary,
-                                  ),
-                                ),
-                              ),
                             ),
                             Expanded(
                               child: IconButton(
@@ -344,8 +360,7 @@ class _AudioPlayerscreenState extends State<Page3> {
                             ),
                             Expanded(
                               child: IconButton(
-                                onPressed: () =>
-                                    {_audioPlayer.setShuffleModeEnabled(true)},
+                                onPressed: () => {},
                                 icon: ImageIcon(
                                   AssetImage(
                                     "assets/icons/set.png",
