@@ -1,7 +1,9 @@
 import 'dart:developer';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:on_audio_query/on_audio_query.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 import 'nowplaying.dart';
 
@@ -13,6 +15,16 @@ class playlist extends StatefulWidget {
 class _playlist extends State<playlist> {
   final OnAudioQuery _audioQuery = OnAudioQuery();
   final AudioPlayer _audioPlayer = AudioPlayer();
+
+  @override
+  void initState() {
+    super.initState();
+    requestPermission();
+  }
+
+  void requestPermission() {
+    Permission.storage.request();
+  }
 
   playSong(String? uri) {
     try {
@@ -40,6 +52,11 @@ class _playlist extends State<playlist> {
         builder: (context, item) {
           if (item.data == null) {
             return const Center(child: CircularProgressIndicator());
+          }
+          if (item.data!.isEmpty) {
+            return Center(
+              child: Text('No Songs Found'),
+            );
           }
           return ListView.builder(
             itemCount: item.data!.length,
