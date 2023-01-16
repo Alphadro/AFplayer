@@ -21,26 +21,6 @@ class Page1 extends StatefulWidget {
 
 class _pageState extends State<Page1> {
   final OnAudioQuery _audioQuery = OnAudioQuery();
-  final AudioPlayer _audioPlayer = AudioPlayer();
-
-  @override
-  void initState() {
-    super.initState();
-    requestPermission();
-  }
-
-  void requestPermission() {
-    Permission.storage.request();
-  }
-
-  playSong(String? uri) {
-    try {
-      _audioPlayer.setAudioSource(AudioSource.uri(Uri.parse(uri!)));
-      _audioPlayer.play();
-    } on Exception {
-      log('Erorr parsing song');
-    }
-  }
 
   bool t1 = false;
   bool s1 = false;
@@ -339,163 +319,197 @@ class _pageState extends State<Page1> {
                     Padding(
                       padding: const EdgeInsets.only(top: 8),
                       child: Container(
-                          height: 500.h,
-                          child: GridView.count(
-                              crossAxisCount: 3,
-                              mainAxisSpacing: 5,
-                              childAspectRatio: 2 / 2.5,
-                              crossAxisSpacing: 7,
-                              children: List<Widget>.generate(item.data!.length,
-                                  ($index) {
-                                return Card(
-                                  elevation: 0,
-                                  clipBehavior: Clip.hardEdge,
-                                  color: Palette.primary,
-                                  child: Column(
-                                    children: [
-                                      Stack(children: [
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                    builder: (context) => Page3(
-                                                      songModel:
-                                                          item.data![index],
-                                                    ),
-                                                  ));
-                                            },
-                                            child: Image(
-                                              height: 95.h,
-                                              image: AssetImage(
-                                                  'assets/images/cover_img.png'),
+                        height: 500.h,
+                        child: FutureBuilder<List<SongModel>>(
+                          future: _audioQuery.querySongs(
+                            sortType: null,
+                            orderType: OrderType.ASC_OR_SMALLER,
+                            uriType: UriType.EXTERNAL,
+                            ignoreCase: true,
+                          ),
+                          builder: (context, item) {
+                            if (item.data == null) {
+                              return const Center(
+                                  child: CircularProgressIndicator());
+                            }
+                            if (item.data!.isEmpty) {
+                              return Center(
+                                child: Text('No Songs Found'),
+                              );
+                            }
+                            return GridView.count(
+                                crossAxisCount: 3,
+                                mainAxisSpacing: 5,
+                                childAspectRatio: 2 / 2.5,
+                                crossAxisSpacing: 7,
+                                children: List<Widget>.generate(
+                                    item.data!.length, (index) {
+                                  return Card(
+                                    elevation: 0,
+                                    clipBehavior: Clip.hardEdge,
+                                    color: Palette.primary,
+                                    child: Column(
+                                      children: [
+                                        Stack(children: [
+                                          ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          Page3(
+                                                        songModel:
+                                                            item.data![index],
+                                                      ),
+                                                    ));
+                                              },
+                                              child: Image(
+                                                height: 95.h,
+                                                image: AssetImage(
+                                                    'assets/images/cover_img.png'),
+                                              ),
                                             ),
                                           ),
+                                          Positioned(
+                                            top: 4,
+                                            left: 7,
+                                            child: ImageIcon(
+                                                AssetImage(
+                                                    "assets/icons/circlemusic.png"),
+                                                size: 15,
+                                                color: Colors.white),
+                                          ),
+                                          Positioned(
+                                            top: 2,
+                                            right: 3,
+                                            child: Theme(
+                                              data: Theme.of(context).copyWith(
+                                                  dividerColor: Colors.white54),
+                                              child: PopupMenuButton<int>(
+                                                  onSelected: (value) async {},
+                                                  shape: RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              14)),
+                                                  color: Palette.primary
+                                                      .withOpacity(.9),
+                                                  child: ImageIcon(
+                                                    AssetImage(
+                                                        'assets/icons/menu.png'),
+                                                    color: Colors.white,
+                                                    size: 25,
+                                                  ),
+                                                  itemBuilder: (context) => [
+                                                        PopupMenuItem(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  10),
+                                                          child: Text(
+                                                            'Delete Music',
+                                                            style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 12,
+                                                              fontFamily:
+                                                                  "IranwebSanse",
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w400,
+                                                            ),
+                                                          ),
+                                                          onTap: () {
+                                                            setState(() {
+                                                              print('yes');
+                                                            });
+                                                          },
+                                                        ),
+                                                        PopupMenuDivider(),
+                                                        PopupMenuItem(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  10),
+                                                          child: Text(
+                                                            'Add to Play List',
+                                                            style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 12,
+                                                              fontFamily:
+                                                                  "IranwebSanse",
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w400,
+                                                            ),
+                                                          ),
+                                                          onTap: () {
+                                                            setState(() {
+                                                              print('yes');
+                                                            });
+                                                          },
+                                                        ),
+                                                        PopupMenuDivider(),
+                                                        PopupMenuItem(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  10),
+                                                          child: Text(
+                                                            'Share Music',
+                                                            style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 12,
+                                                              fontFamily:
+                                                                  "IranwebSanse",
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w400,
+                                                            ),
+                                                          ),
+                                                          onTap: () {
+                                                            setState(() {
+                                                              print('yes');
+                                                            });
+                                                          },
+                                                        ),
+                                                      ]),
+                                            ),
+                                          ),
+                                        ]),
+                                        SizedBox(
+                                          height: 4,
                                         ),
-                                        Positioned(
-                                          top: 4,
-                                          left: 7,
-                                          child: ImageIcon(
-                                              AssetImage(
-                                                  "assets/icons/circlemusic.png"),
-                                              size: 15,
-                                              color: Colors.white),
-                                        ),
-                                        Positioned(
-                                          top: 2,
-                                          right: 3,
-                                          child: Theme(
-                                            data: Theme.of(context).copyWith(
-                                                dividerColor: Colors.white54),
-                                            child: PopupMenuButton<int>(
-                                                onSelected: (value) async {},
-                                                shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            14)),
-                                                color: Palette.primary
-                                                    .withOpacity(.9),
-                                                child: ImageIcon(
-                                                  AssetImage(
-                                                      'assets/icons/menu.png'),
-                                                  color: Colors.white,
-                                                  size: 25,
-                                                ),
-                                                itemBuilder: (context) => [
-                                                      PopupMenuItem(
-                                                        padding:
-                                                            EdgeInsets.all(10),
-                                                        child: Text(
-                                                          'Delete Music',
-                                                          style: TextStyle(
-                                                            color: Colors.white,
-                                                            fontSize: 12,
-                                                            fontFamily:
-                                                                "IranwebSanse",
-                                                            fontWeight:
-                                                                FontWeight.w400,
-                                                          ),
-                                                        ),
-                                                        onTap: () {
-                                                          setState(() {
-                                                            print('yes');
-                                                          });
-                                                        },
-                                                      ),
-                                                      PopupMenuDivider(),
-                                                      PopupMenuItem(
-                                                        padding:
-                                                            EdgeInsets.all(10),
-                                                        child: Text(
-                                                          'Add to Play List',
-                                                          style: TextStyle(
-                                                            color: Colors.white,
-                                                            fontSize: 12,
-                                                            fontFamily:
-                                                                "IranwebSanse",
-                                                            fontWeight:
-                                                                FontWeight.w400,
-                                                          ),
-                                                        ),
-                                                        onTap: () {
-                                                          setState(() {
-                                                            print('yes');
-                                                          });
-                                                        },
-                                                      ),
-                                                      PopupMenuDivider(),
-                                                      PopupMenuItem(
-                                                        padding:
-                                                            EdgeInsets.all(10),
-                                                        child: Text(
-                                                          'Share Music',
-                                                          style: TextStyle(
-                                                            color: Colors.white,
-                                                            fontSize: 12,
-                                                            fontFamily:
-                                                                "IranwebSanse",
-                                                            fontWeight:
-                                                                FontWeight.w400,
-                                                          ),
-                                                        ),
-                                                        onTap: () {
-                                                          setState(() {
-                                                            print('yes');
-                                                          });
-                                                        },
-                                                      ),
-                                                    ]),
+                                        Text(
+                                          item.data![index].title,
+                                          overflow: TextOverflow.ellipsis,
+                                          softWrap: true,
+                                          style: TextStyle(
+                                            fontSize: 11.sp,
+                                            color: Colors.white,
+                                            fontFamily: "IranwebSanse",
+                                            fontWeight: FontWeight.w300,
                                           ),
                                         ),
-                                      ]),
-                                      SizedBox(
-                                        height: 4,
-                                      ),
-                                      Text(
-                                        item.data![index].title,
-                                        style: TextStyle(
-                                          fontSize: 11.sp,
-                                          color: Colors.white,
-                                          fontFamily: "IranwebSanse",
-                                          fontWeight: FontWeight.w300,
+                                        Text(
+                                          item.data![index].artist ?? 'no',
+                                          overflow: TextOverflow.ellipsis,
+                                          softWrap: true,
+                                          style: TextStyle(
+                                            color: Color(0xff3c4550),
+                                            fontSize: 8.sp,
+                                            fontFamily: "IranwebSanse",
+                                            fontWeight: FontWeight.w200,
+                                          ),
                                         ),
-                                      ),
-                                      Text(
-                                        item.data![index].artist ?? 'no',
-                                        style: TextStyle(
-                                          color: Color(0xff3c4550),
-                                          fontSize: 8.sp,
-                                          fontFamily: "IranwebSanse",
-                                          fontWeight: FontWeight.w200,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                );
-                              }))),
+                                      ],
+                                    ),
+                                  );
+                                }));
+                          },
+                        ),
+                      ),
                     ),
                     playing()
                   ],

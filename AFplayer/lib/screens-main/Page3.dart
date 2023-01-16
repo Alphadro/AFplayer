@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widgets/edittag.dart';
@@ -5,13 +7,14 @@ import 'package:flutter_application_1/widgets/colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_application_1/screens-main/Page2.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:on_audio_query/on_audio_query.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../Controls/Controller.dart';
 
 class Page3 extends StatefulWidget {
-  const Page3({Key? key}) : super(key: key);
-
+  const Page3({Key? key, required this.songModel});
+  final SongModel songModel;
   @override
   _AudioPlayerscreenState createState() => _AudioPlayerscreenState();
 }
@@ -28,21 +31,25 @@ class PositionData {
 }
 
 class _AudioPlayerscreenState extends State<Page3> {
-  late AudioPlayer _audioPlayer;
+  final AudioPlayer _audioPlayer = AudioPlayer();
+  bool _isPlaying = false;
 
-  final _playlist = ConcatenatingAudioSource(
-    children: [
-      AudioSource.asset("assets/audio/dd.mp3"),
-      AudioSource.asset("assets/audio/ss.mp3"),
-      AudioSource.asset("assets/audio/tutsak.mp3"),
-      AudioSource.asset("assets/audio/a.mp3"),
-      AudioSource.asset("assets/audio/b.mp3"),
-      AudioSource.asset("assets/audio/c.mp3"),
-      AudioSource.asset("assets/audio/d.mp3"),
-      AudioSource.asset("assets/audio/e.mp3"),
-      AudioSource.asset("assets/audio/f.mp3"),
-    ],
-  );
+  @override
+  void initState() {
+    super.initState();
+    PlaySong();
+  }
+
+  void PlaySong() {
+    try {
+      _audioPlayer
+          .setAudioSource(AudioSource.uri(Uri.parse(widget.songModel.uri!)));
+      _audioPlayer.play();
+      _isPlaying = true;
+    } on Exception {
+      log("cannot Parse Song");
+    }
+  }
 
   Stream<PositionData> get _PositionDataStream =>
       Rx.combineLatest3<Duration, Duration, Duration?, PositionData>(
@@ -55,18 +62,6 @@ class _AudioPlayerscreenState extends State<Page3> {
           duration ?? Duration.zero,
         ),
       );
-
-  @override
-  void initState() {
-    super.initState();
-    _audioPlayer = AudioPlayer();
-    _init();
-  }
-
-  Future<void> _init() async {
-    await _audioPlayer.setLoopMode(LoopMode.all);
-    await _audioPlayer.setAudioSource(_playlist);
-  }
 
   @override
   void dispose() {
