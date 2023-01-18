@@ -158,7 +158,7 @@ class _pageState extends State<Page2> {
                                                       padding:
                                                           EdgeInsets.all(10),
                                                       child: Text(
-                                                        'Delete Music',
+                                                        'Share',
                                                         style: TextStyle(
                                                           color: Colors.white,
                                                           fontSize: 12,
@@ -179,7 +179,7 @@ class _pageState extends State<Page2> {
                                                       padding:
                                                           EdgeInsets.all(10),
                                                       child: Text(
-                                                        'Add to Play List',
+                                                        'Hide Playlist',
                                                         style: TextStyle(
                                                           color: Colors.white,
                                                           fontSize: 12,
@@ -200,7 +200,7 @@ class _pageState extends State<Page2> {
                                                       padding:
                                                           EdgeInsets.all(10),
                                                       child: Text(
-                                                        'Share Music',
+                                                        'Delete',
                                                         style: TextStyle(
                                                           color: Colors.white,
                                                           fontSize: 12,
