@@ -403,12 +403,13 @@ class _pageState extends State<Page1> {
                                                     size: 25,
                                                   ),
                                                   itemBuilder: (context) => [
+                                                        PopupMenuDivider(),
                                                         PopupMenuItem(
                                                           padding:
                                                               EdgeInsets.all(
                                                                   10),
                                                           child: Text(
-                                                            'Delete Music',
+                                                            'Hide Songs',
                                                             style: TextStyle(
                                                               color:
                                                                   Colors.white,
@@ -432,31 +433,7 @@ class _pageState extends State<Page1> {
                                                               EdgeInsets.all(
                                                                   10),
                                                           child: Text(
-                                                            'Add to Play List',
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                              fontSize: 12,
-                                                              fontFamily:
-                                                                  "IranwebSanse",
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w400,
-                                                            ),
-                                                          ),
-                                                          onTap: () {
-                                                            setState(() {
-                                                              print('yes');
-                                                            });
-                                                          },
-                                                        ),
-                                                        PopupMenuDivider(),
-                                                        PopupMenuItem(
-                                                          padding:
-                                                              EdgeInsets.all(
-                                                                  10),
-                                                          child: Text(
-                                                            'Share Music',
+                                                            'Delete',
                                                             style: TextStyle(
                                                               color:
                                                                   Colors.white,
