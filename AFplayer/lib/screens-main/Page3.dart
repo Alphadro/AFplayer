@@ -36,7 +36,7 @@ class _AudioPlayerscreenState extends ConsumerState<Page3> {
   final AudioPlayer _audioPlayer = AudioPlayer();
   bool _isPlaying = false;
   late SongModel songModel;
-  
+
   @override
   void initState() {
     super.initState();
@@ -52,12 +52,10 @@ class _AudioPlayerscreenState extends ConsumerState<Page3> {
     } on Exception {
       log("cannot Parse Song");
     }
-
   }
-    void getAudio() {
-    
-     ref.read(SongModelProvider).setAudio();
-    
+
+  void getAudio() {
+    ref.read(SongModelProvider).setAudio();
   }
 
   Stream<PositionData> get _PositionDataStream =>
