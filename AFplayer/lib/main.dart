@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/home_page.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'onboarding_screen.dart';
 import 'package:is_first_run/is_first_run.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ProviderScope(child: const MyApp(),)
+    );
 }
 
 class MyApp extends StatefulWidget {

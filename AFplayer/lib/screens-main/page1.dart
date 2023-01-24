@@ -1,25 +1,23 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens-main/provider.dart';
 import 'package:flutter_application_1/widgets/colors.dart';
 import 'package:flutter_application_1/widgets/playing.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:just_audio/just_audio.dart';
 import 'package:on_audio_query/on_audio_query.dart';
-import 'package:permission_handler/permission_handler.dart';
 import '../other-page/Search.dart';
 import 'Page3.dart';
 import '../other-page/Setting.dart';
 
 var scaffoldkey = GlobalKey<ScaffoldState>();
 
-class Page1 extends StatefulWidget {
+class Page1 extends ConsumerStatefulWidget {
   const Page1({Key? key}) : super(key: key);
   @override
-  _pageState createState() => _pageState();
+  ConsumerState<Page1> createState() => _pageState();
 }
 
-class _pageState extends State<Page1> {
+class _pageState extends ConsumerState<Page1> {
   final OnAudioQuery _audioQuery = OnAudioQuery();
 
   bool t1 = false;
@@ -337,6 +335,7 @@ class _pageState extends State<Page1> {
                                 child: Text('No Songs Found'),
                               );
                             }
+                            ref.read(SongModelProvider).setAudio(item.data!);
                             return GridView.count(
                                 crossAxisCount: 3,
                                 mainAxisSpacing: 5,
@@ -360,10 +359,7 @@ class _pageState extends State<Page1> {
                                                     context,
                                                     MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Page3(
-                                                        songModel:
-                                                            item.data![index],
-                                                      ),
+                                                          Page3(),
                                                     ));
                                               },
                                               child: Image(

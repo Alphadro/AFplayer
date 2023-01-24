@@ -1,22 +1,24 @@
 import 'dart:developer';
-
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens-main/provider.dart';
 import 'package:flutter_application_1/widgets/edittag.dart';
 import 'package:flutter_application_1/widgets/colors.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_application_1/screens-main/Page2.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:rxdart/rxdart.dart';
-
 import '../Controls/Controller.dart';
 
-class Page3 extends StatefulWidget {
-  const Page3({Key? key, required this.songModel});
-  final SongModel songModel;
+class Page3 extends ConsumerStatefulWidget {
+  const Page3({
+    Key? key,
+  });
+
   @override
-  _AudioPlayerscreenState createState() => _AudioPlayerscreenState();
+  ConsumerState<Page3> createState() => _AudioPlayerscreenState();
 }
 
 class PositionData {
@@ -30,25 +32,32 @@ class PositionData {
   final Duration duration;
 }
 
-class _AudioPlayerscreenState extends State<Page3> {
+class _AudioPlayerscreenState extends ConsumerState<Page3> {
   final AudioPlayer _audioPlayer = AudioPlayer();
   bool _isPlaying = false;
-
+  late SongModel songModel;
+  
   @override
   void initState() {
     super.initState();
+
     PlaySong();
   }
 
   void PlaySong() {
     try {
-      _audioPlayer
-          .setAudioSource(AudioSource.uri(Uri.parse(widget.songModel.uri!)));
+      _audioPlayer.setAudioSource(AudioSource.uri(Uri.parse(songModel.uri!)));
       _audioPlayer.play();
       _isPlaying = true;
     } on Exception {
       log("cannot Parse Song");
     }
+
+  }
+    void getAudio() {
+    
+     ref.read(SongModelProvider).setAudio();
+    
   }
 
   Stream<PositionData> get _PositionDataStream =>

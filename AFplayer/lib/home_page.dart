@@ -24,7 +24,7 @@ class _homepage extends State<HomePage> {
     Page4(),
   ];
 
-  int currentIndex = 2;
+  int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     //SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
